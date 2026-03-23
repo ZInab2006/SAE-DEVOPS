@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cyber Blog - SAE DevOps</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS personnalisé -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!--
+    defer = exécution après parsing HTML
+    👉 évite de bloquer le rendu
+    -->
+    <script src="js/include.js" defer></script>
+    <script src="js/router.js" defer></script>
+    <!-- Bootstrap JS (nécessaire pour menu dropdown) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+  </head>
+  <body>
+    <!-- MENU injecté dynamiquement -->
+    <div id="menu"></div>
+    <!-- CONTENU dynamique -->
+    <main class="container mt-4">
+      <div id="content"></div>
+    </main>
+    <!-- FOOTER injecté dynamiquement -->
+    <div id="footer"></div>
+  </body>
+</html>
