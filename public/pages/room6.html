@@ -1,0 +1,35 @@
+<h1>Windows Fundamentals 2</h1>
+<p class="text-muted small">TryHackMe — Parcours Cyber Security 101 (Partie I)</p>
+<section class="mb-4">
+  <h2 class="h4">Contexte</h2>
+  <p>
+    La suite des fondamentaux Windows creuse les <strong>mécanismes système</strong> utiles en administration et en sécurité : comment l’OS organise les <strong>processus</strong>, les <strong>services</strong> en arrière-plan, le <strong>démarrage</strong>, et où regarder quand « quelque chose ne va pas ».
+    On touche souvent à des outils comme le <strong>Gestionnaire des tâches</strong> (processus, performances, applications au démarrage), le panneau des <strong>services</strong>, parfois des utilitaires de configuration système ou des notions liées au <strong>registre</strong> (base de configuration de Windows) selon le fil de la room.
+    L’idée pédagogique : un analyste ou un pentester ne se contente pas de l’interface visible — il doit comprendre <strong>ce qui tourne</strong>, <strong>qui l’a lancé</strong>, et <strong>comment ça persiste</strong> après un reboot.
+  </p>
+</section>
+<section class="mb-4">
+  <h2 class="h4">Ce que j’ai appris</h2>
+  <p>
+    J’ai mieux relié <strong>processus ↔ services ↔ démarrage</strong> : beaucoup de malwares ou d’outils légitimes abusés cherchent justement à s’y accrocher pour survivre au redémarrage.
+    J’ai compris l’intérêt de regarder <strong>la chaîne de confiance</strong> : un binaire signé, un emplacement suspect, un parent process incohérent — ce sont des indices qu’on retrouve aussi en vraie analyse (même si ici c’est guidé).
+    Côté perso, j’ai pris l’habitude de noter « qu’est-ce que j’ai cliqué / qu’est-ce que ça m’a montré » pour pouvoir l’expliquer dans la vidéo sans sauter des étapes.
+  </p>
+</section>
+<section class="mb-4">
+  <h2 class="h4">Vidéo</h2>
+  <div class="ratio ratio-16x9">
+    <iframe
+      src="https://www.youtube.com/embed/UGp_Dr7HbyU"
+      title="Windows Fundamentals 2 — démo"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+</section>
+<section class="mb-4">
+  <h2 class="h4">Conclusion</h2>
+  <p>
+    Cette partie rend Windows plus « lisible » : moins magie, plus de système.
+    Ça prépare directement la partie 3 et surtout la suite du parcours (AD, postes d’entreprise) où ces briques reviennent en boucle.
+  </p>
+</section>

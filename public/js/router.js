@@ -5,18 +5,23 @@
 const allowedPages = [
   "home",
   "team",
-  "room-example"
+  "room1",
+  "room2",
+  "room3",
+  "room4",
+  "room5",
+  "room6",
+  "room7"
 ];
 
 /**
  * Charge dynamiquement une page HTML dans #content
  */
 function loadPage(page) {
-  // Sécurité : vérification whitelist
   if (!allowedPages.includes(page)) {
     page = "home";
   }
-  fetch(`pages/${page}.html`)
+  fetch(`pages/${page}.html`, { cache: "no-store" })
     .then(response => {
       if (!response.ok) {
         throw new Error("Page non trouvée");
@@ -32,17 +37,11 @@ function loadPage(page) {
     });
 }
 
-/**
- * Récupère le paramètre ?page=
- */
 function getPageFromURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get("page") || "home";
 }
 
-/**
- * Initialisation du router
- */
 document.addEventListener("DOMContentLoaded", () => {
   const page = getPageFromURL();
   loadPage(page);

@@ -1,0 +1,35 @@
+<h1>Linux Fundamentals Part 1</h1>
+<p class="text-muted small">TryHackMe — Parcours Cyber Security 101 (Partie I)</p>
+<section class="mb-4">
+  <h2 class="h4">Contexte</h2>
+  <p>
+    <strong>Linux</strong> est omniprésent en cybersécu : serveurs, clouds, conteneurs, outils de pentest, VMs sur TryHackMe… Savoir se débrouiller en <strong>ligne de commande</strong> n’est pas optionnel.
+    Le système repose sur des notions stables : une <strong>arborescence</strong> qui part de la racine <code>/</code>, des fichiers et dossiers, des <strong>permissions</strong> (lecture / écriture / exécution pour propriétaire, groupe, autres), et un <strong>shell</strong> qui interprète les commandes.
+    La première partie des fondamentaux vise surtout la <strong>navigation</strong> et la <strong>manipulation de base</strong> : où je suis, comment lister et lire des fichiers, créer des répertoires — avant d’aller vers des sujets plus avancés (utilisateurs, permissions fines, scripts) dans la suite du parcours.
+  </p>
+</section>
+<section class="mb-4">
+  <h2 class="h4">Ce que j’ai appris</h2>
+  <p>
+    J’ai ancré les réflexes : <code>pwd</code> pour ne pas supprimer ou lire au mauvais endroit, chemins <strong>absolus</strong> vs <strong>relatifs</strong>, et l’importance de la <strong>casse</strong> sous Linux.
+    J’ai compris que le terminal, c’est moins « intimidant » quand on découpe : une commande = un verbe + souvent une cible + parfois des options.
+    Pour le lien avec la sécu : beaucoup d’exploits et de checks se font sur des serveurs Linux ; comprendre ls/cat/cd, c’est déjà comprendre comment un attaquant <em>ou</em> un défenseur parcourt le système de fichiers après compromission.
+  </p>
+</section>
+<section class="mb-4">
+  <h2 class="h4">Vidéo</h2>
+  <div class="ratio ratio-16x9">
+    <iframe
+      src="https://www.youtube.com/embed/75HtXupguTw"
+      title="Linux Fundamentals Part 1 — démo"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+</section>
+<section class="mb-4">
+  <h2 class="h4">Conclusion</h2>
+  <p>
+    Cette room est un investissement : le temps passé sur Linux revient sur presque toutes les machines suivantes.
+    Mon objectif maintenant, c’est d’automatiser un peu mes gestes (erreurs typiques, commandes de base) pour être plus fluide quand une room me lâche un shell.
+  </p>
+</section>

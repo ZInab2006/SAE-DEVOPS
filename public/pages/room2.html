@@ -1,0 +1,35 @@
+<h1>Defensive Security Intro</h1>
+<p class="text-muted small">TryHackMe — Parcours Cyber Security 101 (Partie I)</p>
+<section class="mb-4">
+  <h2 class="h4">Contexte</h2>
+  <p>
+    La <strong>sécurité défensive</strong> (souvent <em>blue team</em>) consiste à <strong>protéger</strong>, <strong>détecter</strong> et <strong>répondre</strong> face aux incidents.
+    Contrairement à l’offensive qui cherche à prouver qu’on peut entrer, la défensive vise à <strong>réduire la probabilité et l’impact</strong> d’une compromission : durcissement, supervision, analyse, remédiation.
+    Le cours introduit des briques classiques : un <strong>SOC</strong> (<em>Security Operations Center</em>) qui surveille les alertes et coordonne l’analyse ; un <strong>SIEM</strong> qui agrège et corrèle des logs pour repérer des comportements suspects ; la <strong>DFIR</strong> (<em>Digital Forensics and Incident Response</em>) pour enquêter et restaurer après un incident ; la <strong>threat intelligence</strong> pour contextualiser les menaces ; parfois un aperçu de l’<strong>analyse de malware</strong> pour comprendre ce qu’on cherche à bloquer.
+  </p>
+</section>
+<section class="mb-4">
+  <h2 class="h4">Ce que j’ai appris</h2>
+  <p>
+    J’ai compris que la défense, ce n’est pas « installer un antivirus et c’est fini » : c’est une <strong>chaîne</strong> (préparation → détection → analyse → confinement → éradication → retour à la normale → leçons apprises).
+    La visibilité compte énormément : sans <strong>logs exploitables</strong> et sans corrélation, beaucoup d’attaques passent sous le radar trop longtemps.
+    J’ai aussi relié ça à l’offensive : les mêmes vulnérabilités vues côté attaquant deviennent côté défenseur des <strong>indicateurs</strong>, des règles de détection ou des priorités de patch.
+  </p>
+</section>
+<section class="mb-4">
+  <h2 class="h4">Vidéo</h2>
+  <div class="ratio ratio-16x9">
+    <iframe
+      src="https://www.youtube.com/embed/qmpEUPrjgEg"
+      title="Defensive Security Intro — démo"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+</section>
+<section class="mb-4">
+  <h2 class="h4">Conclusion</h2>
+  <p>
+    Cette intro défensive m’aide à lire le reste du parcours avec un double regard : chaque technique offensive a en miroir des <strong>contre-mesures</strong> et des <strong>traces</strong> laissées sur les systèmes.
+    Pour un blog DevOps / déploiement, ça me rappelle qu’il faut aussi penser <strong>observabilité</strong>, sauvegardes et réponse — pas seulement la mise en prod.
+  </p>
+</section>

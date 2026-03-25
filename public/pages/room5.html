@@ -1,0 +1,34 @@
+<h1>Windows Fundamentals 1</h1>
+<p class="text-muted small">TryHackMe — Parcours Cyber Security 101 (Partie I)</p>
+<section class="mb-4">
+  <h2 class="h4">Contexte</h2>
+  <p>
+    Windows reste majoritaire sur les postes en entreprise et dans beaucoup d’environnements avec <strong>Active Directory</strong>. La série <em>Windows Fundamentals</em> sert à comprendre l’OS comme le ferait un technicien ou un analyste : <strong>comptes utilisateurs</strong>, groupes, notion d’<strong>élévation de privilèges</strong> et de <strong>UAC</strong> (<em>User Account Control</em>), système de fichiers (notamment <strong>NTFS</strong>), et les outils graphiques intégrés (Paramètres, Panneau de configuration, Gestionnaire des tâches…).
+    Cette première partie pose surtout le décor : <strong>comment l’utilisateur vit dans l’interface</strong> et où se trouvent les informations utiles avant d’aller plus loin sur les mécanismes internes.
+  </p>
+</section>
+<section class="mb-4">
+  <h2 class="h4">Ce que j’ai appris</h2>
+  <p>
+    J’ai arrêté de voir Windows comme « juste des clics » : derrière l’UI il y a des <strong>comptes</strong>, des <strong>privilèges</strong>, des <strong>services</strong> et une organisation des données qui expliquent beaucoup de chemins d’attaque en entreprise (mauvaise config, comptes sur-administrés, etc.).
+    La comparaison avec Linux m’a aidée : mêmes concepts (utilisateurs, fichiers, permissions), autre présentation — donc je fais attention à ne pas transférer des réflexes shell n’importe comment sans vérifier.
+    Pour la SAE, je retiens surtout l’idée de <strong>surface d’attaque utilisateur</strong> : une session compromise sur un poste Windows, c’est souvent la porte vers le reste du réseau.
+  </p>
+</section>
+<section class="mb-4">
+  <h2 class="h4">Vidéo</h2>
+  <div class="ratio ratio-16x9">
+    <iframe
+      src="https://www.youtube.com/embed/TWkqUfGpHFM"
+      title="Windows Fundamentals 1 — démo"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+</section>
+<section class="mb-4">
+  <h2 class="h4">Conclusion</h2>
+  <p>
+    Bon socle avant les parties 2 et 3 : je connais mieux « l’anatomie » de Windows côté utilisateur et je comprends mieux pourquoi les rooms AD plus tard s’appuient sur tout ça.
+    Prochaine étape : approfondir les outils système et la logique interne sans me perdre dans les menus.
+  </p>
+</section>

@@ -4,7 +4,7 @@
  * @param {string} file - chemin du fichier HTML
  */
 function loadHTML(id, file) {
-  fetch(file)
+  fetch(file, { cache: "no-store" })
     .then(response => {
       if (!response.ok) {
         throw new Error(`Erreur chargement ${file}`);

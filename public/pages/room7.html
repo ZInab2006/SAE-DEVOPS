@@ -1,0 +1,35 @@
+<h1>Windows Fundamentals 3</h1>
+<p class="text-muted small">TryHackMe — Parcours Cyber Security 101 (Partie I)</p>
+<section class="mb-4">
+  <h2 class="h4">Contexte</h2>
+  <p>
+    Le troisième volet complète la série en abordant des aspects plus orientés <strong>observation et diagnostic</strong> : journaux et événements, emplacements utiles pour comprendre ce qui s’est passé sur la machine, et parfois des interactions avec la ligne de commande Windows (cmd / PowerShell) pour interroger le système.
+    Le <strong>Observateur d’événements</strong> (<em>Event Viewer</em>) est un exemple typique : il centralise des <strong>logs</strong> (connexions, services, erreurs applicatives…) que les équipes défensives exploitent pour détecter des anomalies — et que les attaquants aimeraient effacer ou noyer si le système le permet (d’où l’importance de la centralisation des logs vers un SIEM en entreprise).
+    Cette room referme le triptyque « utilisateur → système → traces / outils » avant d’attaquer des sujets comme Active Directory.
+  </p>
+</section>
+<section class="mb-4">
+  <h2 class="h4">Ce que j’ai appris</h2>
+  <p>
+    J’ai compris que <strong>Windows parle</strong> : derrière une panne ou une compromission, il y a souvent un événement à relire si on sait où chercher (et si les logs sont conservés).
+    J’ai aussi vu l’intérêt de combiner <strong>GUI + CLI</strong> : l’interface aide à explorer vite, la ligne de commande aide à scripter et à répéter proprement.
+    Pour le blog / la SAE, je relie ça au DevOps : déployer un service sans logs exploitables, c’est presque comme déployer les yeux bandés — la défense commence par la <strong>visibilité</strong>.
+  </p>
+</section>
+<section class="mb-4">
+  <h2 class="h4">Vidéo</h2>
+  <div class="ratio ratio-16x9">
+    <iframe
+      src="https://www.youtube.com/embed/I_qWfk7tDiE"
+      title="Windows Fundamentals 3 — démo"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+</section>
+<section class="mb-4">
+  <h2 class="h4">Conclusion</h2>
+  <p>
+    Avec les trois parties, j’ai une vision plus cohérente de Windows : comptes et privilèges, ce qui tourne, ce qui persiste, et où laisser des traces.
+    Je suis plus à l’aise pour enchaîner sur <strong>Active Directory Basics</strong> et le reste du PDF, en comprenant mieux le poste client comme pièce du puzzle.
+  </p>
+</section>
