@@ -5,7 +5,45 @@
 const allowedPages = [
   "home",
   "team",
-  "room-example"
+  "rooms",
+  "room-example",
+  "special/firebase-services",
+  "special/site-structure",
+  "special/group-organization",
+  "special/vpn-rdp",
+  "lotl",
+  "mitm",
+  "members/member-1",
+  "members/member-2",
+  "members/member-3",
+  "members/member-4",
+  "labo1/offensive-security-intro",
+  "labo1/defensive-security-intro",
+  "labo1/search-skills",
+  "labo1/linux-fundamentals-part-1",
+  "labo1/windows-fundamentals-1",
+  "labo1/windows-fundamentals-2",
+  "labo1/windows-fundamentals-3",
+
+  // Labo 2 — Pre Security (Partie II)
+  "labo2/careers-in-cyber",
+  "labo2/what-is-networking",
+  "labo2/dns-in-detail",
+  "labo2/http-in-detail",
+  "labo2/how-websites-work",
+  "labo2/putting-it-all-together",
+
+  // Labo 3 — Cyber Security 101 (Partie III)
+  "labo3/networking-concepts",
+  "labo3/cryptography-basics",
+  "labo3/moniker-link-cve-2024-21413",
+  "labo3/metasploit-introduction",
+  "labo3/blue",
+  "labo3/web-application-basics",
+  "labo3/owasp-top-10-2025-iaaa-failures",
+  "labo3/owasp-top-10-2025-application-design-flaws",
+  "labo3/owasp-top-10-2025-insecure-data-handling",
+  "labo3/common-attacks"
 ];
 
 /**

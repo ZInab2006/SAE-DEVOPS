@@ -4,12 +4,24 @@ Les liens utilisent ?page=
 -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="?page=home">Cyber Blog</a>
+    <a class="navbar-brand brand" href="?page=home" aria-label="CyberNotes - Accueil">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" focusable="false" aria-hidden="true">
+          <path d="M32 6 54 18v28L32 58 10 46V18z" fill="none" stroke="currentColor" stroke-width="3" opacity="0.9"/>
+          <path d="M20 34c7-12 17-16 28-12" fill="none" stroke="currentColor" stroke-width="3" opacity="0.55"/>
+          <circle cx="22" cy="36" r="3.5" fill="currentColor"/>
+          <circle cx="44" cy="24" r="3.5" fill="currentColor" opacity="0.85"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-cyber">Cyber</span><span class="brand-notes">Notes</span>
+      </span>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav me-auto">
         <li class="nav-item">
           <a class="nav-link" href="?page=home">Accueil</a>
         </li>
@@ -17,9 +29,39 @@ Les liens utilisent ?page=
           <a class="nav-link" href="?page=team">Équipe</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="?page=room-example">Room Exemple</a>
+          <a class="nav-link" href="?page=rooms">Rooms</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="specialPagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ressources SAE
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="specialPagesDropdown">
+            <li><a class="dropdown-item" href="?page=special/firebase-services">Services Firebase</a></li>
+            <li><a class="dropdown-item" href="?page=special/site-structure">Structure du site</a></li>
+            <li><a class="dropdown-item" href="?page=special/group-organization">Organisation du groupe</a></li>
+            <li><a class="dropdown-item" href="?page=special/vpn-rdp">Connexion VPN et RDP</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="?page=lotl">Living Off The Land</a></li>
+            <li><a class="dropdown-item" href="?page=mitm">Man In The Middle</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="membersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Membres
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="membersDropdown">
+            <li><a class="dropdown-item" href="?page=members/member-1">Membre 1</a></li>
+            <li><a class="dropdown-item" href="?page=members/member-2">Membre 2</a></li>
+            <li><a class="dropdown-item" href="?page=members/member-3">Membre 3</a></li>
+            <li><a class="dropdown-item" href="?page=members/member-4">Membre 4</a></li>
+          </ul>
         </li>
       </ul>
+      <div class="d-flex gap-2 align-items-center">
+        <button id="themeToggle" class="btn btn-sm btn-primary" type="button" aria-label="Basculer le thème">
+          Thème : Sombre
+        </button>
+      </div>
     </div>
   </div>
 </nav>

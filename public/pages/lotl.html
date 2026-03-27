@@ -1,0 +1,37 @@
+<h1>Living Off The Land</h1>
+
+<section class="mb-4">
+  <h3>Contexte</h3>
+  <p>
+    Le sujet Living Off The Land decrit des attaques qui reutilisent des outils natifs du systeme au lieu d'introduire un malware classique.
+    L'attaquant cherche a rester discret en utilisant des commandes legitimes deja presentes sur la machine.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>Ce que nous avons compris</h3>
+  <p>
+    Cette approche complique la detection car l'activite peut ressembler a de l'administration normale. Des outils comme PowerShell, WMI ou cmd
+    peuvent etre detournes pour l'execution, le mouvement lateral et la collecte d'informations.
+  </p>
+  <p>
+    La defense doit donc se concentrer sur le comportement : surveillance des commandes sensibles, restriction des privileges, journalisation centralisee,
+    et regles de detection basees sur les sequences d'actions.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>Explication de la demarche</h3>
+  <p>
+    Dans notre demonstration, nous montrons comment reconnaitre un usage detourne d'outils natifs et quels indicateurs relever pour expliquer
+    la chaine d'actions. Cette etape permet de relier les commandes observees aux mesures de defense a mettre en place.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>Conclusion</h3>
+  <p>
+    Living Off The Land montre que la confiance dans les outils systeme ne suffit pas. Une bonne protection passe par l'observabilite, la limitation des droits
+    et l'analyse contextuelle des actions executees.
+  </p>
+</section>
