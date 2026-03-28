@@ -1,25 +1,119 @@
-<h1>Structure du Site</h1>
+<div class="site-structure-page">
+  <h1>📐 Structure du site</h1>
 
-<section class="mb-4">
-  <h3>Contexte</h3>
-  <p>
-    Cette page explique la structure technique retenue pour avoir un site homogène, maintenable et conforme aux attentes de la SAE.
-  </p>
-</section>
+  <section class="mb-4">
+    <h3>
+      <span class="doc-section-icon" aria-hidden="true">🧭</span>
+      Contexte
+    </h3>
+    <p>
+      Le site est volontairement organisé comme une <strong>application à page unique (SPA légère)</strong> : une seule <code>index.html</code> sert de coquille, et le contenu des « pages » est injecté dans une zone dédiée sans recharger toute la page.
+      Ce choix simplifie la navigation, évite de dupliquer menu et pied de page sur chaque fichier HTML, et reste entièrement compatible avec <strong>Firebase Hosting</strong> (fichiers statiques + règle de rewrite vers <code>index.html</code>).
+    </p>
+    <p>
+      La structure vise trois objectifs pour la SAE : <strong>cohérence visuelle</strong> (mêmes styles partout), <strong>sécurité minimale</strong> (on ne charge que des fragments autorisés), et <strong>maintenabilité</strong> (un membre ajoute un fichier sous <code>public/pages/</code>, l’inscrit dans la liste du routeur, et le menu peut pointer vers <code>?page=...</code>).
+    </p>
+  </section>
 
-<section class="mb-4">
-  <h3>Organisation des fichiers</h3>
-  <ul>
-    <li><strong>Point d’entrée unique :</strong> <code>public/index.html</code>.</li>
-    <li><strong>Partials :</strong> menu et footer chargés dynamiquement.</li>
-    <li><strong>Router :</strong> chargement des pages via <code>?page=...</code> avec une whitelist de pages autorisées.</li>
-    <li><strong>Pages :</strong> classement en <code>labo1</code>, <code>labo2</code>, <code>labo3</code>, plus pages spéciales.</li>
-  </ul>
-</section>
+  <section class="mb-4">
+    <h3>
+      <span class="doc-section-icon" aria-hidden="true">📁</span>
+      Organisation des fichiers
+    </h3>
+    <ul>
+      <li>
+        <strong>Point d’entrée unique :</strong> <code>public/index.html</code> charge les polices, Bootstrap, <code>css/styles.css</code> et les scripts dans l’ordre
+        (<code>include.js</code> puis <code>router.js</code>, etc.). Le corps contient uniquement <code>#menu</code>, <code>#content</code> et <code>#footer</code>.
+      </li>
+      <li>
+        <strong>Partials :</strong> <code>public/partials/menu.html</code> et <code>footer.html</code> sont récupérés par <code>fetch</code> puis injectés dans le DOM au chargement (voir <code>include.js</code>).
+      </li>
+      <li>
+        <strong>Routeur :</strong> l’URL <code>?page=nom</code> (ex. <code>?page=labo1/search-skills</code>) détermine quel fragment HTML est chargé depuis <code>public/pages/</code>.
+        Une <strong>whitelist</strong> <code>allowedPages</code> dans <code>router.js</code> empêche de demander un chemin arbitraire (ex. lecture de fichiers sensibles).
+      </li>
+      <li>
+        <strong>Pages :</strong> regroupées par labo — <code>labo1/</code>, <code>labo2/</code>, <code>labo3/</code> — plus des dossiers <code>special/</code>, <code>members/</code>, et les pages racine logiques (<code>home</code>, <code>team</code>, <code>rooms</code>, etc.).
+      </li>
+      <li>
+        <strong>Assets :</strong> images sous <code>public/img/</code> (équipe, icônes), feuille de style unique <code>public/css/styles.css</code>, scripts sous <code>public/js/</code> (thème, animations, navigation des rooms, etc.).
+      </li>
+    </ul>
+  </section>
 
-<section class="mb-4">
-  <h3>Extraits de code à commenter en soutenance</h3>
-  <p>
-    Nous compléterons ici les extraits importants du routeur, du chargement des partials et des styles communs pour justifier nos choix.
-  </p>
-</section>
+  <section class="mb-4">
+    <h3>
+      <span class="doc-section-icon" aria-hidden="true">💻</span>
+      Extraits de code
+    </h3>
+    <p>
+      Les extraits ci-dessous sont repris du projet : ils illustrent le <strong>squelette</strong>, le <strong>chargement des partials</strong> et la <strong>logique du routeur</strong>.
+      Le dépôt contient les fichiers complets ; le site publié montre le résultat une fois ces mécanismes chargés.
+    </p>
+
+    <p class="code-sample-title">1. Squelette — <code>public/index.html</code> (zones d’injection)</p>
+    <pre class="site-code-block"><code>&lt;body&gt;
+  &lt;div id="menu"&gt;&lt;/div&gt;
+  &lt;main class="container mt-4"&gt;
+    &lt;div id="content"&gt;&lt;/div&gt;
+  &lt;/main&gt;
+  &lt;div id="footer"&gt;&lt;/div&gt;
+  &lt;script src="js/include.js" defer&gt;&lt;/script&gt;
+  &lt;script src="js/router.js" defer&gt;&lt;/script&gt;
+  ...
+&lt;/body&gt;</code></pre>
+
+    <p class="code-sample-title">2. Partials — <code>public/js/include.js</code> (menu + footer)</p>
+    <pre class="site-code-block"><code>function loadHTML(id, file) {
+  fetch(file)
+    .then(response =&gt; {
+      if (!response.ok) throw new Error(`Erreur chargement ${file}`);
+      return response.text();
+    })
+    .then(data =&gt; {
+      document.getElementById(id).innerHTML = data;
+    })
+    .catch(error =&gt; console.error(error));
+}
+
+document.addEventListener("DOMContentLoaded", () =&gt; {
+  loadHTML("menu", "partials/menu.html");
+  loadHTML("footer", "partials/footer.html");
+});</code></pre>
+
+    <p class="code-sample-title">3. Routeur — <code>public/js/router.js</code> (whitelist + chargement)</p>
+    <pre class="site-code-block"><code>const allowedPages = [
+  "home",
+  "team",
+  "special/site-structure",
+  "labo1/search-skills",
+  // ... autres pages autorisées
+];
+
+function loadPage(page) {
+  if (!allowedPages.includes(page)) page = "home";
+  fetch(`pages/${page}.html`)
+    .then(r =&gt; { if (!r.ok) throw new Error("Page non trouvée"); return r.text(); })
+    .then(data =&gt; { document.getElementById("content").innerHTML = data; })
+    .catch(() =&gt; {
+      document.getElementById("content").innerHTML =
+        "&lt;h1&gt;404 - Page non trouvée&lt;/h1&gt;";
+    });
+}
+
+function getPageFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("page") || "home";
+}
+
+document.addEventListener("DOMContentLoaded", () =&gt; {
+  loadPage(getPageFromURL());
+});</code></pre>
+
+    <p class="code-sample-title">4. Styles globaux — <code>public/css/styles.css</code> (variables + thème)</p>
+    <p>
+      Le fichier commence par le bloc <code>:root</code> : couleurs, ombres, polices (dont <code>--font-display</code> pour les titres). Le sélecteur <code>[data-theme="light"]</code> redéfinit les mêmes variables pour le thème clair.
+      L’ensemble assure un rendu cohérent sur toutes les pages (cartes, liens, blocs de code, menu) ; le bouton de thème du menu pilote ces variables via <code>theme.js</code> (<code>dataset.theme</code> sur l’élément racine).
+    </p>
+  </section>
+</div>
