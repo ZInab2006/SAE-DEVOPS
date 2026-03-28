@@ -12,8 +12,16 @@
 <section class="mb-4">
   <h3>💭 Points clés</h3>
   <p>
-    Nous avons retenu le lien entre processus, persistance et analyse de sécurité. Une vue claire des services actifs permet de mieux détecter
-    les comportements suspects et d’expliquer une compromission.
+    Un processus, c’est un programme en cours d’exécution ; un service, c’est souvent un processus qui tourne en arrière-plan et redémarre avec le système.
+    Comprendre qui lance quoi (parent / enfant, compte utilisé) évite de confondre l’activité normale avec quelque chose de louche.
+  </p>
+  <p>
+    Les mécanismes de démarrage (tâches planifiées, dossiers de démarrage, clés de registre liées au boot, etc.) sont des endroits classiques pour la persistance :
+    un binaire légitime peut masquer un chargement automatique malveillant. Savoir les lister et les prioriser, c’est déjà de l’analyse.
+  </p>
+  <p>
+    En défense comme en forensic léger, l’idée est d’avoir une vue ordonnée : quels services sont indispensables, lesquels sont suspects ou inconnus,
+    et comment expliquer à quelqu’un d’autre pourquoi un élément mérite d’être creusé. Cette room pose ce fil conducteur pour la suite Active Directory et investigation.
   </p>
 </section>
 
