@@ -6,9 +6,16 @@ function getPreferredTheme() {
     : "dark";
 }
 
+function syncThemeColorMeta(theme) {
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (!meta) return;
+  meta.setAttribute("content", theme === "light" ? "#e8e4dc" : "#0b0f14");
+}
+
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
   localStorage.setItem("theme", theme);
+  syncThemeColorMeta(theme);
   updateThemeToggleLabel();
 }
 
@@ -21,7 +28,9 @@ function updateThemeToggleLabel() {
 
 function initThemeToggle() {
   // Apply theme as early as possible (defer, but still before user interacts)
-  document.documentElement.dataset.theme = getPreferredTheme();
+  const initial = getPreferredTheme();
+  document.documentElement.dataset.theme = initial;
+  syncThemeColorMeta(initial);
 
   // Menu is injected dynamically; wait until #themeToggle exists.
   const tryWire = () => {
