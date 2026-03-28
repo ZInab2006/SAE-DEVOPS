@@ -9,7 +9,6 @@ const allowedPages = [
   "room-example",
   "special/firebase-services",
   "special/site-structure",
-  "special/group-organization",
   "special/vpn-rdp",
   "lotl",
   "mitm",

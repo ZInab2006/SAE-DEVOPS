@@ -59,55 +59,58 @@
 }
 
 [data-theme="light"]{
-  /* Clair chaud + accents cuivre / indigo (évite blanc + menthe « médical ») */
-  --accent: #b45309;
-  --accent-2: #4338ca;
+  /*
+   * Thème clair « Air & Slate » : fond bleu-gris très doux, surfaces blanches,
+   * texte ardoise, accents teal + indigo (reposant pour les longues lectures).
+   */
+  --accent: #0d9488;
+  --accent-2: #6366f1;
 
-  --bg: #e8e4dc;
-  --panel: rgba(252, 250, 246, 0.88);
-  --panel-2: rgba(255, 253, 248, 0.94);
-  --border: rgba(41, 37, 33, 0.14);
-  --text: rgba(28, 25, 23, 0.92);
-  --muted: rgba(41, 37, 33, 0.68);
-  --soft: rgba(41, 37, 33, 0.10);
-  --shadow: 0 20px 48px rgba(28, 25, 23, 0.08);
-  --ring: 0 0 0 3px color-mix(in oklab, var(--accent) 28%, transparent);
+  --bg: #e4e9f0;
+  --panel: rgba(255, 255, 255, 0.9);
+  --panel-2: #ffffff;
+  --border: rgba(15, 23, 42, 0.09);
+  --text: #0f172a;
+  --muted: #64748b;
+  --soft: rgba(15, 23, 42, 0.06);
+  --shadow: 0 20px 50px rgba(15, 23, 42, 0.07);
+  --ring: 0 0 0 3px color-mix(in oklab, var(--accent) 26%, transparent);
 
-  --heading: rgba(28, 25, 23, 0.94);
-  --link: #9a3412;
-  --link-hover: #7c2d12;
-  --nav-bg: rgba(255, 252, 247, 0.92);
-  --nav-border: rgba(120, 113, 104, 0.18);
-  --nav-link: rgba(41, 37, 33, 0.72);
-  --nav-link-hover: rgba(28, 25, 23, 0.92);
-  --nav-hover-bg: rgba(180, 83, 9, 0.08);
-  --nav-brand: rgba(28, 25, 23, 0.94);
-  --dropdown-bg: rgba(255, 253, 248, 0.98);
-  --dropdown-border: rgba(120, 113, 104, 0.20);
-  --dropdown-item: rgba(41, 37, 33, 0.82);
-  --dropdown-item-hover: rgba(28, 25, 23, 0.95);
-  --dropdown-hover-bg: rgba(180, 83, 9, 0.07);
-  --media-border: rgba(120, 113, 104, 0.22);
-  --footer-border: rgba(120, 113, 104, 0.22);
-  --footer-text: rgba(87, 83, 78, 0.72);
+  --heading: #0f172a;
+  --link: #0f766e;
+  --link-hover: #115e59;
+  --nav-bg: rgba(255, 255, 255, 0.88);
+  --nav-border: rgba(15, 23, 42, 0.1);
+  --nav-link: rgba(51, 65, 85, 0.88);
+  --nav-link-hover: #0f172a;
+  --nav-hover-bg: color-mix(in oklab, var(--accent) 11%, transparent);
+  --nav-brand: #0f172a;
+  --dropdown-bg: rgba(255, 255, 255, 0.98);
+  --dropdown-border: rgba(15, 23, 42, 0.1);
+  --dropdown-item: #334155;
+  --dropdown-item-hover: #0f172a;
+  --dropdown-hover-bg: color-mix(in oklab, var(--accent) 8%, white);
+  --media-border: rgba(15, 23, 42, 0.11);
+  --footer-border: rgba(15, 23, 42, 0.1);
+  --footer-text: #64748b;
 
-  --info-bg: color-mix(in oklab, var(--accent-2) 10%, white);
-  --info-border: color-mix(in oklab, var(--accent-2) 28%, transparent);
-  --info-text: rgba(28, 25, 23, 0.88);
-  --surface-bg: linear-gradient(180deg, rgba(255, 253, 248, 0.97), rgba(245, 241, 234, 0.92));
+  --info-bg: color-mix(in oklab, var(--accent-2) 9%, white);
+  --info-border: color-mix(in oklab, var(--accent-2) 24%, transparent);
+  --info-text: #0f172a;
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.96));
 
-  --bg-grad-1: radial-gradient(1000px 520px at 12% -8%, rgba(180, 83, 9, 0.09), transparent 62%);
-  --bg-grad-2: radial-gradient(900px 600px at 88% 0%, rgba(67, 56, 202, 0.08), transparent 60%);
-  --bg-grad-3: radial-gradient(1000px 820px at 50% 108%, rgba(180, 83, 9, 0.05), transparent 58%);
+  --bg-grad-1: radial-gradient(1000px 520px at 10% -12%, rgba(13, 148, 136, 0.1), transparent 62%);
+  --bg-grad-2: radial-gradient(900px 600px at 92% 0%, rgba(99, 102, 241, 0.09), transparent 60%);
+  --bg-grad-3: radial-gradient(1000px 820px at 50% 108%, rgba(13, 148, 136, 0.045), transparent 58%);
 
-  --pre-bg: #ede8e0;
-  --pre-border: rgba(41, 37, 33, 0.22);
-  --pre-text: #1c1917;
-  --pre-code: #7c2d12;
+  --pre-bg: #f1f5f9;
+  --pre-border: rgba(15, 23, 42, 0.12);
+  --pre-text: #1e293b;
+  --pre-code: #0f766e;
 
-  --kbd-bg: rgba(41, 37, 33, 0.08);
-  --kbd-border: rgba(41, 37, 33, 0.22);
-  --kbd-text: #292524;
+  --kbd-bg: #f8fafc;
+  --kbd-border: rgba(15, 23, 42, 0.12);
+  --kbd-text: #334155;
 }
 
 html, body{
@@ -155,9 +158,9 @@ body::after{
 
 [data-theme="light"] body::before{
   background-image:
-    linear-gradient(145deg, rgba(232, 228, 220, 0.94), rgba(214, 206, 192, 0.82)),
+    linear-gradient(160deg, rgba(228, 233, 240, 0.96), rgba(241, 245, 249, 0.9)),
     url("https://images.wallpapersden.com/image/download/programming-coding-language_bGhpbm6UmZqaraWkpJRmbmdlrWZlbWU.jpg");
-  filter: saturate(0.88) sepia(0.06);
+  filter: saturate(0.72) brightness(1.06);
 }
 
 main.container{
@@ -319,36 +322,39 @@ main.container{
 
 [data-theme="light"] .hero{
   background:
-    radial-gradient(900px 420px at 18% 0%, rgba(180, 83, 9, 0.11), transparent 62%),
-    radial-gradient(900px 420px at 92% 0%, rgba(67, 56, 202, 0.09), transparent 62%),
-    linear-gradient(180deg, rgba(255, 252, 247, 0.98), rgba(241, 236, 228, 0.94));
-  border-color: color-mix(in oklab, var(--border) 85%, var(--accent) 8%);
+    radial-gradient(900px 420px at 16% 0%, rgba(13, 148, 136, 0.11), transparent 62%),
+    radial-gradient(900px 420px at 94% 0%, rgba(99, 102, 241, 0.09), transparent 62%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(248, 250, 252, 0.96));
+  border-color: color-mix(in oklab, var(--border) 78%, var(--accent) 14%);
 }
 
 [data-theme="light"] .hero-canvas{
-  opacity: 0.12;
+  opacity: 0.1;
   mix-blend-mode: multiply;
 }
 
 [data-theme="light"] .hero::after{
-  opacity: 0.14;
-  background: radial-gradient(600px 220px at 50% 0%, rgba(180, 83, 9, 0.10), transparent 60%);
+  opacity: 0.11;
+  background: radial-gradient(600px 220px at 50% 0%, rgba(13, 148, 136, 0.08), transparent 60%);
 }
 
 [data-theme="light"] .hero[data-parallax]::before{
-  opacity: 0.22;
+  opacity: 0.2;
   background: conic-gradient(from 180deg,
-    rgba(180,83,9,0.0),
-    rgba(180,83,9,0.45),
-    rgba(67,56,202,0.42),
-    rgba(180,83,9,0.0));
+    rgba(13, 148, 136, 0),
+    rgba(13, 148, 136, 0.38),
+    rgba(99, 102, 241, 0.34),
+    rgba(13, 148, 136, 0));
 }
 
 [data-theme="light"] .glitch::before{
-  color: color-mix(in oklab, var(--accent-2) 78%, black 8%);
+  color: color-mix(in oklab, var(--accent-2) 82%, #1e293b 6%);
 }
 [data-theme="light"] .glitch::after{
-  color: color-mix(in oklab, var(--accent) 72%, black 6%);
+  color: color-mix(in oklab, var(--accent) 78%, #1e293b 5%);
+}
+[data-theme="light"] .hero .kicker .dot{
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 16%, transparent);
 }
 .hero .kicker{
   display: inline-flex;
@@ -469,7 +475,10 @@ main.container{
 }
 
 [data-theme="light"] .feature:hover{
-  box-shadow: 0 22px 56px rgba(28, 25, 23, 0.12);
+  box-shadow: 0 22px 56px rgba(15, 23, 42, 0.1);
+}
+[data-theme="light"] .feature::after{
+  background: radial-gradient(420px 240px at 30% 0%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 65%);
 }
 .feature{
   position: relative;
@@ -558,9 +567,9 @@ code{
 }
 
 [data-theme="light"] code{
-  color: #7c2d12;
-  background: color-mix(in oklab, var(--accent) 12%, white);
-  border-color: color-mix(in oklab, var(--accent) 32%, transparent);
+  color: var(--accent);
+  background: color-mix(in oklab, var(--accent) 10%, white);
+  border-color: color-mix(in oklab, var(--accent) 26%, transparent);
 }
 
 /* Blocs multilignes : ne pas hériter du fond Bootstrap (bg-body-secondary) illisible en sombre */
@@ -624,8 +633,8 @@ section{
 }
 
 [data-theme="light"] section{
-  box-shadow: 0 16px 36px rgba(28, 25, 23, 0.06);
-  border-color: color-mix(in oklab, var(--border) 88%, var(--accent) 6%);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+  border-color: color-mix(in oklab, var(--border) 82%, var(--accent) 10%);
 }
 
 section + section{
@@ -648,15 +657,15 @@ html[data-page="room-example"] #content{
 
 [data-theme="light"] html[data-page^="labo"] #content,
 [data-theme="light"] html[data-page="room-example"] #content{
-  backdrop-filter: blur(10px);
-  box-shadow: 0 22px 56px rgba(28, 25, 23, 0.07);
-  border-color: color-mix(in oklab, var(--border) 82%, var(--accent) 5%);
-  background: linear-gradient(180deg, rgba(255, 253, 248, 0.94), rgba(241, 236, 228, 0.88));
+  backdrop-filter: blur(12px);
+  box-shadow: 0 22px 56px rgba(15, 23, 42, 0.07);
+  border-color: color-mix(in oklab, var(--border) 78%, var(--accent) 10%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(241, 245, 249, 0.94));
 }
 
 [data-theme="light"] html[data-page^="labo"] section + section,
 [data-theme="light"] html[data-page="room-example"] section + section{
-  border-top-color: color-mix(in oklab, var(--border) 80%, var(--accent) 8%);
+  border-top-color: color-mix(in oklab, var(--border) 85%, var(--accent) 8%);
 }
 
 [data-theme="light"] html[data-page^="labo"] section h3::before,
@@ -720,13 +729,13 @@ html[data-page="room-example"] section h3::before{
  * Avec notre fond crème (--nav-bg), il faut forcer du texte foncé (sinon « blanc sur blanc »).
  */
 [data-theme="light"] .navbar.navbar-dark{
-  --bs-navbar-color: rgba(41, 37, 33, 0.88);
-  --bs-navbar-hover-color: rgba(28, 25, 23, 0.98);
-  --bs-navbar-active-color: rgba(28, 25, 23, 1);
-  --bs-navbar-disabled-color: rgba(87, 83, 78, 0.55);
+  --bs-navbar-color: rgba(51, 65, 85, 0.92);
+  --bs-navbar-hover-color: #0f172a;
+  --bs-navbar-active-color: #0f172a;
+  --bs-navbar-disabled-color: rgba(100, 116, 139, 0.55);
   --bs-navbar-brand-color: var(--nav-brand);
   --bs-navbar-brand-hover-color: var(--nav-brand);
-  --bs-navbar-toggler-border-color: color-mix(in oklab, var(--nav-border) 80%, var(--accent) 15%);
+  --bs-navbar-toggler-border-color: color-mix(in oklab, var(--nav-border) 75%, var(--accent) 18%);
 }
 
 [data-theme="light"] .navbar.navbar-dark .nav-link{
@@ -745,12 +754,12 @@ html[data-page="room-example"] section h3::before{
 
 /* Flèche des menus déroulants : visible sur fond clair */
 [data-theme="light"] .navbar.navbar-dark .nav-link.dropdown-toggle::after{
-  border-top-color: rgba(41, 37, 33, 0.65);
+  border-top-color: rgba(51, 65, 85, 0.65);
 }
 
 [data-theme="light"] .navbar-dark .navbar-toggler-icon{
   /* Icône hamburger prévue pour fond sombre → inverser sur fond clair */
-  filter: brightness(0) saturate(100%) invert(0.18);
+  filter: brightness(0) saturate(100%) invert(0.22);
 }
 
 .navbar .navbar-brand{
@@ -938,20 +947,33 @@ html[data-page="room-example"] section h3::before{
 [data-theme="light"] .member-profile-name{
   color: var(--heading);
 }
+[data-theme="light"] .member-profile-photo{
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.11);
+}
 
-/* Page Ressources — Services Firebase */
-.firebase-page .firebase-page-heading{
+/* Page Ressources — Services Firebase + page VPN/RDP (même en-tête) */
+.firebase-page .firebase-page-heading,
+.vpn-page .firebase-page-heading{
   display: flex;
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
+  font-size: clamp(1.75rem, 3vw, 2.45rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
-.firebase-page .firebase-page-icon{
+.firebase-page .firebase-page-icon,
+.vpn-page .firebase-page-icon{
   width: 64px;
   height: 64px;
   object-fit: contain;
   flex-shrink: 0;
   filter: drop-shadow(0 2px 12px rgba(255, 152, 0, 0.24));
+}
+.vpn-page .firebase-page-icon{
+  filter: drop-shadow(0 2px 14px rgba(46, 229, 157, 0.28));
 }
 /* Titres de section : pastille verte (comme les pages labo) + icône + texte */
 .firebase-page section h3,
@@ -975,6 +997,18 @@ html[data-page="room-example"] section h3::before{
 .vpn-page .firebase-section-icon{
   font-size: 1.22rem;
   line-height: 1;
+}
+
+[data-theme="light"] .firebase-page .firebase-page-icon{
+  filter: drop-shadow(0 2px 14px color-mix(in oklab, var(--accent-2) 32%, transparent));
+}
+[data-theme="light"] .vpn-page .firebase-page-icon{
+  filter: drop-shadow(0 2px 14px color-mix(in oklab, var(--accent) 34%, transparent));
+}
+[data-theme="light"] .firebase-page section h3::before,
+[data-theme="light"] .vpn-page section h3::before{
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 15%, transparent);
 }
 
 .alert{
@@ -1023,14 +1057,14 @@ html[data-page="room-example"] section h3::before{
 }
 
 [data-theme="light"] .btn-primary{
-  background: color-mix(in oklab, var(--accent) 22%, white 78%);
-  border: 1px solid color-mix(in oklab, var(--accent) 42%, transparent);
-  color: #1c1917;
+  background: color-mix(in oklab, var(--accent) 18%, white);
+  border: 1px solid color-mix(in oklab, var(--accent) 38%, transparent);
+  color: #0f172a;
 }
 [data-theme="light"] .btn-primary:hover{
-  background: color-mix(in oklab, var(--accent) 32%, white 68%);
-  border-color: color-mix(in oklab, var(--accent) 52%, transparent);
-  color: #0c0a09;
+  background: color-mix(in oklab, var(--accent) 28%, white);
+  border-color: color-mix(in oklab, var(--accent) 48%, transparent);
+  color: #0f172a;
 }
 
 /* Video embeds */
@@ -1042,7 +1076,7 @@ html[data-page="room-example"] section h3::before{
 }
 
 [data-theme="light"] .ratio{
-  box-shadow: 0 18px 48px rgba(28, 25, 23, 0.10);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.09);
 }
 
 /* Footer */
@@ -1075,13 +1109,13 @@ footer p{
 [data-theme="light"] .room-card,
 [data-theme="light"] .feature,
 [data-theme="light"] .card{
-  box-shadow: 0 16px 40px rgba(28, 25, 23, 0.07);
-  border-color: color-mix(in oklab, var(--border) 85%, var(--accent) 6%);
-  background: linear-gradient(180deg, var(--panel-2), color-mix(in oklab, var(--panel) 92%, var(--accent) 3%));
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.07);
+  border-color: color-mix(in oklab, var(--border) 82%, var(--accent) 10%);
+  background: linear-gradient(180deg, #ffffff, color-mix(in oklab, var(--panel) 96%, var(--accent) 4%));
 }
 
 [data-theme="light"] .navbar.bg-dark{
-  box-shadow: 0 14px 36px rgba(28, 25, 23, 0.09);
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
 }
 
 [data-theme="light"] .dropdown-menu.dropdown-menu-dark{
@@ -1090,8 +1124,8 @@ footer p{
   --bs-dropdown-link-color: var(--dropdown-item);
   --bs-dropdown-link-hover-color: var(--dropdown-item-hover);
   --bs-dropdown-link-hover-bg: var(--dropdown-hover-bg);
-  --bs-dropdown-link-active-bg: color-mix(in oklab, var(--accent) 18%, white);
-  --bs-dropdown-link-active-color: #1c1917;
+  --bs-dropdown-link-active-bg: color-mix(in oklab, var(--accent) 16%, white);
+  --bs-dropdown-link-active-color: #0f172a;
 }
 .room-card:hover{
   transform: translateY(-3px);
@@ -1100,7 +1134,7 @@ footer p{
 }
 
 [data-theme="light"] .room-card:hover{
-  box-shadow: 0 22px 56px rgba(28, 25, 23, 0.12);
+  box-shadow: 0 22px 56px rgba(15, 23, 42, 0.11);
 }
 .room-card::before{
   content: "";
@@ -1112,6 +1146,10 @@ footer p{
   opacity: 0;
   pointer-events: none;
   transition: opacity .20s ease;
+}
+[data-theme="light"] .room-card::before{
+  background: radial-gradient(220px 140px at calc(var(--mx, .5) * 100%) calc(var(--my, .5) * 100%),
+    color-mix(in oklab, var(--accent) 20%, transparent), transparent 65%);
 }
 .room-card.tilting::before{
   opacity: 1;

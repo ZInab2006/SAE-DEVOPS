@@ -9,7 +9,7 @@ function getPreferredTheme() {
 function syncThemeColorMeta(theme) {
   const meta = document.querySelector('meta[name="theme-color"]');
   if (!meta) return;
-  meta.setAttribute("content", theme === "light" ? "#e8e4dc" : "#0b0f14");
+  meta.setAttribute("content", theme === "light" ? "#e4e9f0" : "#0b0f14");
 }
 
 function setTheme(theme) {
