@@ -1,25 +1,72 @@
-<h1>Services Firebase Utilisés</h1>
+<div class="firebase-page">
+  <h1 class="firebase-page-heading">
+    <img
+      class="firebase-page-icon"
+      src="img/team/Firebase.png"
+      alt="Firebase"
+      width="64"
+      height="64"
+      decoding="async"
+    />
+    Services Firebase Utilisés
+  </h1>
 
-<section class="mb-4">
-  <h3>Contexte</h3>
-  <p>
-    Cette page présente les services Firebase choisis pour la SAE avec une explication courte de leur rôle.
-    Le service obligatoire est Firebase Hosting, utilisé pour publier le site en ligne.
-  </p>
-</section>
+  <section class="mb-4">
+    <h3>
+      <span class="firebase-section-icon" aria-hidden="true">🧭</span>
+      Contexte
+    </h3>
+    <p>
+      Dans le cadre de la SAE DevOps (BUT2), le sujet impose de rendre le site accessible sur le web et d’exploiter l’écosystème Google Firebase.
+      Notre blog « CyberNotes » est un site entièrement statique : HTML, CSS et JavaScript servis tels quels, avec un routeur côté client qui charge les fragments de pages dans une seule <code>index.html</code>.
+      Pour ce type d’architecture, <strong>Firebase Hosting</strong> est le service adapté : il expose nos fichiers sur le réseau avec HTTPS, un déploiement rapide et un plan gratuit (Spark) suffisant pour un projet pédagogique.
+    </p>
+    <p>
+      Nous n’avons pas activé d’autres produits Firebase obligatoires pour cette SAE (Authentication, Firestore, etc.) : le périmètre se concentre sur la <strong>mise en ligne</strong>, la <strong>reproductibilité des déploiements</strong> et la <strong>cohérence</strong> entre le dépôt Git et ce qui est visible en production.
+      Cette page documente précisément ce que nous avons branché, comment c’est configuré, et ce que ça apporte au groupe.
+    </p>
+  </section>
 
-<section class="mb-4">
-  <h3>Ce que nous avons mis en place</h3>
-  <ul>
-    <li><strong>Firebase Hosting :</strong> hébergement du site statique avec point d’entrée unique et routage client.</li>
-    <li><strong>Configuration :</strong> fichiers <code>.firebaserc</code> et <code>firebase.json</code> pour lier le projet et définir la publication.</li>
-    <li><strong>Déploiement :</strong> publication via CLI Firebase avec suivi des versions GitHub.</li>
-  </ul>
-</section>
+  <section class="mb-4">
+    <h3>
+      <span class="firebase-section-icon" aria-hidden="true">🛠️</span>
+      Ce que nous avons mis en place
+    </h3>
+    <p>
+      Voici les éléments concrets présents dans le dépôt et utilisés pour publier le site.
+    </p>
+    <ul>
+      <li>
+        <strong>Firebase Hosting :</strong> le répertoire <code>public/</code> est défini comme racine du site. Tout le contenu visible (pages, CSS, JS, images) part de ce dossier.
+        Les visiteurs accèdent à une URL unique ; le menu et le routeur JavaScript affichent ensuite les bonnes « pages » sans rechargement complet, ce qui reste compatible avec un hébergement statique.
+      </li>
+      <li>
+        <strong>Routage SPA :</strong> dans <code>firebase.json</code>, une règle de <code>rewrites</code> renvoie toutes les routes vers <code>/index.html</code>.
+        Ainsi, un lien du type <code>?page=labo1/search-skills</code> ou un rafraîchissement du navigateur ne provoque pas une erreur 404 côté serveur : c’est le comportement attendu pour une application à page unique.
+      </li>
+      <li>
+        <strong>Configuration projet :</strong> le fichier <code>.firebaserc</code> associe l’alias <code>default</code> à l’identifiant du projet Firebase du groupe. Chaque membre qui déploie utilise le même projet après <code>firebase login</code>, ce qui évite les décalages entre environnements.
+        Le fichier <code>firebase.json</code> complète la définition : dossier public, fichiers ignorés au déploiement (<code>node_modules</code>, fichiers cachés, etc.).
+      </li>
+      <li>
+        <strong>Déploiement :</strong> la publication se fait avec la CLI officielle (<code>firebase deploy</code> ou ciblage du hosting uniquement). Le workflow est reproductible : pull du dépôt, vérification en local si besoin (<code>npx serve public</code>), puis déploiement.
+        Le dépôt peut aussi s’appuyer sur des workflows GitHub (fichiers sous <code>.github/workflows/</code>) pour automatiser les déploiements lors des fusions sur la branche principale, ce qui relie directement notre flux Git aux mises en ligne.
+      </li>
+    </ul>
+  </section>
 
-<section class="mb-4">
-  <h3>Synthèse</h3>
-  <p>
-    Firebase Hosting répond bien au besoin du projet : déploiement rapide, accès web simple et intégration facile avec notre flux Git.
-  </p>
-</section>
+  <section class="mb-4">
+    <h3>
+      <span class="firebase-section-icon" aria-hidden="true">✨</span>
+      Synthèse
+    </h3>
+    <p>
+      <strong>Firebase Hosting</strong> répond clairement au cahier des charges : site public, HTTPS, simplicité pour une équipe qui n’a pas à gérer un serveur dédié.
+      La configuration reste légère (deux fichiers à la racine et un dossier <code>public</code>), ce qui facilite la reprise par un autre membre ou l’évaluation du projet.
+    </p>
+    <p class="mb-0">
+      Pour la suite, l’équipe peut enrichir le pipeline (tests avant déploiement, prévisualisations sur pull request) sans changer de plateforme d’hébergement.
+      L’essentiel est déjà en place : une base stable pour présenter les labs, les ressources SAE et le travail collectif, avec un déploiement aligné sur les bonnes pratiques DevOps vues en cours.
+    </p>
+  </section>
+</div>
