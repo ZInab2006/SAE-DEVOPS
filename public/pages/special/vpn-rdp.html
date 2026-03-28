@@ -12,10 +12,7 @@
   </h1>
 
 <section class="mb-4">
-  <h3>
-    <span class="firebase-section-icon" aria-hidden="true">🧭</span>
-    Contexte
-  </h3>
+  <h3>Contexte</h3>
   <p>
     Plusieurs rooms TryHackMe proposent des machines sur un réseau privé : sans VPN, votre poste ne peut pas joindre ces cibles
     comme le ferait un attaquant ou un analyste dans un labo. Cette page comporte deux volets&nbsp;: d’abord <strong>OpenVPN</strong> (captures
@@ -24,10 +21,7 @@
 </section>
 
 <section class="mb-4">
-  <h3>
-    <span class="firebase-section-icon" aria-hidden="true">💭</span>
-    Pourquoi utiliser le VPN TryHackMe&nbsp;?
-  </h3>
+  <h3>Pourquoi utiliser le VPN TryHackMe&nbsp;?</h3>
   <p>
     Le VPN crée un tunnel chiffré entre votre machine et le réseau TryHackMe. Concrètement, cela permet&nbsp;:
   </p>
@@ -128,10 +122,7 @@
 </section>
 
 <section class="mb-4">
-  <h3>
-    <span class="firebase-section-icon" aria-hidden="true">💻</span>
-    Windows, macOS ou autre environnement
-  </h3>
+  <h3>Windows, macOS ou autre environnement</h3>
   <p class="mb-0">
     Si vous n’êtes pas sous Linux, TryHackMe propose un guide pas à pas pour d’autres systèmes (install du client, import du <code>.ovpn</code>, etc.)
     sur la room dédiée&nbsp;:
@@ -142,10 +133,7 @@
 <hr class="my-5 opacity-25" />
 
 <section class="mb-4">
-  <h3>
-    <span class="firebase-section-icon" aria-hidden="true">🖥️</span>
-    La connexion RDP (bureau distant)
-  </h3>
+  <h3>La connexion RDP (bureau distant)</h3>
   <p class="text-muted">
     Le <abbr title="Remote Desktop Protocol">RDP</abbr> permet de contrôler l’interface graphique d’une machine Windows distante.
     Sur TryHackMe, certaines rooms fournissent une cible Windows accessible en RDP une fois le <strong>VPN actif</strong>.
@@ -153,10 +141,7 @@
 </section>
 
 <section class="mb-4">
-  <h3>
-    <span class="firebase-section-icon" aria-hidden="true">💭</span>
-    À quoi sert le RDP ici&nbsp;?
-  </h3>
+  <h3>À quoi sert le RDP ici&nbsp;?</h3>
   <ul>
     <li>Utiliser des <strong>outils graphiques</strong> sur la machine du lab (Active Directory, navigateur sur la cible, bureaux Windows « réels ») ;</li>
     <li>Suivre des scénarios qui imitent un poste utilisateur ou un serveur, là où SSH seul ne suffit pas ;</li>
@@ -168,10 +153,7 @@
 </section>
 
 <section class="mb-4">
-  <h3>
-    <span class="firebase-section-icon" aria-hidden="true">📚</span>
-    Rappels sur le protocole RDP (hors TryHackMe)
-  </h3>
+  <h3>Rappels sur le protocole RDP (hors TryHackMe)</h3>
   <p>
     Pour une introduction claire au <strong>Remote Desktop Protocol</strong> (port <code>3389</code>, TCP, lien avec le Bureau à distance Windows,
     activation, différences avec RDS, etc.), on s’appuie sur un article pédagogique plutôt que de tout redévelopper ici&nbsp;:
@@ -182,10 +164,7 @@
 </section>
 
 <section class="mb-4">
-  <h3>
-    <span class="firebase-section-icon" aria-hidden="true">📋</span>
-    Prérequis avant d’ouvrir une session RDP (TryHackMe)
-  </h3>
+  <h3>Prérequis avant d’ouvrir une session RDP (TryHackMe)</h3>
   <ol>
     <li><strong>VPN OpenVPN connecté</strong> (voir la partie 1 ci-dessus) — sans VPN, l’IP interne du lab n’est pas joignable.</li>
     <li>Noter l’<strong>IP</strong> (ou le hostname) de la machine, le <strong>port</strong> si ce n’est pas le port par défaut <code>3389</code>, ainsi que <strong>utilisateur / mot de passe</strong> (fournis par la room).</li>
@@ -194,10 +173,7 @@
 </section>
 
 <section class="mb-4">
-  <h3>
-    <span class="firebase-section-icon" aria-hidden="true">🛠️</span>
-    RDP sous Linux (<code>xfreerdp</code>)
-  </h3>
+  <h3>RDP sous Linux (<code>xfreerdp</code>)</h3>
   <p>
     Sur de nombreuses distributions, le paquet s’appelle <code>freerdp</code> ou <code>freerdp2</code> (binaire souvent <code>xfreerdp</code>).
     Exemple de commande (à adapter avec l’IP, le port, le login et le mot de passe fournis par la room)&nbsp;:
@@ -214,10 +190,7 @@
 </section>
 
 <section class="mb-4">
-  <h3>
-    <span class="firebase-section-icon" aria-hidden="true">✅</span>
-    Vérifier que la session fonctionne
-  </h3>
+  <h3>Vérifier que la session fonctionne</h3>
   <p>
     Après connexion, le bureau Windows du lab doit s’afficher. Si la fenêtre reste noire ou se ferme tout de suite, vérifier le VPN,
     le port, et que la machine est bien <strong>démarrée</strong> dans l’interface TryHackMe (bouton <em>Start Machine</em> / équivalent).
@@ -230,10 +203,7 @@
 </section>
 
 <section class="mb-4">
-  <h3>
-    <span class="firebase-section-icon" aria-hidden="true">🔒</span>
-    Sécurité et bonnes habitudes
-  </h3>
+  <h3>Sécurité et bonnes habitudes</h3>
   <ul class="mb-0">
     <li>Utiliser RDP uniquement vers les <strong>cibles du lab</strong> TryHackMe, pas vers des systèmes réels sans autorisation.</li>
     <li>Ne pas réutiliser en production les mots de passe « de démo » donnés dans les rooms.</li>

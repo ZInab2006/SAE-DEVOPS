@@ -1,6 +1,6 @@
 /**
  * Liste des pages AUTORISÉES
- * 👉 évite qu'un utilisateur charge n'importe quel fichier (sécurité)
+ * Évite qu'un utilisateur charge n'importe quel fichier (sécurité).
  */
 const allowedPages = [
   "home",
