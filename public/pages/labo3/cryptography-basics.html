@@ -1,7 +1,7 @@
-<h1>Cryptography Basics (TryHackMe)</h1>
+<h1>Cryptography Basics</h1>
 
 <section class="mb-4">
-  <h3>Contexte</h3>
+  <h3>🧭 Contexte</h3>
   <p>
     Cette room pose les bases de la cryptographie : objectifs (confidentialité, intégrité, authenticité),
     différences entre chiffrement symétrique/asymétrique, hachage et bonnes pratiques.
@@ -9,26 +9,38 @@
 </section>
 
 <section class="mb-4">
-  <h3>Ce que nous avons compris</h3>
+  <h3>💭 Points clés</h3>
   <p>
-    À compléter : à quoi sert un hash vs un chiffrement, pourquoi les clés/tailles comptent, et comment on évite les erreurs
-    (mauvais algos, mauvaises configs, réutilisation de secrets, etc.).
+    Cette room aide à séparer des notions qu’on mélange souvent. Le chiffrement sert à rendre une donnée lisible
+    seulement pour quelqu’un qui a la bonne clé. Le hash, lui, sert surtout à vérifier l’intégrité ou à stocker des mots de passe
+    de façon plus sûre, mais on ne peut pas “déchiffrer” un hash.
+  </p>
+  <p>
+    Cette room permet de comprendre l’importance du choix des algorithmes et des tailles de clé. Même si deux solutions paraissent proches,
+    une mauvaise configuration peut rendre la protection faible en pratique. En sécurité, le détail de configuration compte autant que la théorie.
+  </p>
+  <p>
+    Le point le plus concret : ne jamais stocker des secrets en clair et privilégier les mécanismes éprouvés plutôt que des solutions “maison”.
   </p>
 </section>
 
 <section class="mb-4">
-  <h3>Vidéo</h3>
+  <h3>🎥 Vidéo</h3>
   <div class="ratio ratio-16x9">
     <iframe
-      src="https://www.youtube.com/embed/VIDEO_ID"
-      title="Cryptography Basics - TryHackMe"
+      src="https://www.youtube.com/embed/7qb9PYy835w?rel=0&modestbranding=1&playsinline=1"
+      title="Cryptography Basics"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen
     ></iframe>
   </div>
-  <p class="text-muted mt-2 mb-0">Remplacez <code>VIDEO_ID</code> par l’identifiant YouTube.</p>
 </section>
 
 <section class="mb-4">
-  <h3>Conclusion</h3>
-  <p>À compléter : ce que vous appliquerez concrètement (mots de passe, TLS, stockage de secrets, etc.).</p>
+  <h3>✨ En bref</h3>
+  <p>
+    Cette room donne une base utile pour tous les projets web. Pour la suite, on retient surtout trois réflexes :
+    protéger les secrets, vérifier les configurations et s’appuyer sur des standards robustes pour éviter des erreurs évitables.
+  </p>
 </section>

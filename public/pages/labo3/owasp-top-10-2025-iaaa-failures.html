@@ -1,7 +1,7 @@
-<h1>OWASP Top 10 2025: IAAA Failures (TryHackMe)</h1>
+<h1>OWASP Top 10 2025: IAAA Failures</h1>
 
 <section class="mb-4">
-  <h3>Contexte</h3>
+  <h3>🧭 Contexte</h3>
   <p>
     Cette room aborde des problèmes d’authentification/autorisation/gestion d’identités (IAAA) et leurs impacts
     (accès non autorisés, escalade de privilèges, fuite de données).
@@ -9,26 +9,39 @@
 </section>
 
 <section class="mb-4">
-  <h3>Ce que nous avons compris</h3>
+  <h3>💭 Points clés</h3>
   <p>
-    À compléter : exemples concrets vus, erreurs fréquentes (contrôles côté client, rôles mal vérifiés, sessions),
-    et contre-mesures (contrôles côté serveur, moindre privilège, tests).
+    Cette room montre bien que les problèmes d’identité et d’accès viennent souvent d’erreurs simples mais graves.
+    Un contrôle fait uniquement côté client, un rôle mal vérifié ou une session mal gérée peuvent ouvrir des accès
+    qui ne devraient jamais être autorisés.
+  </p>
+  <p>
+    On retient que l’autorisation doit toujours être vérifiée côté serveur, pour chaque action sensible.
+    Le principe du moindre privilège est aussi central : un compte doit avoir uniquement les droits nécessaires.
+  </p>
+  <p>
+    La partie la plus utile est la logique de tests. Vérifier uniquement le « cas normal » ne suffit pas.
+    Il faut aussi tester les cas d’abus pour confirmer que les protections tiennent.
   </p>
 </section>
 
 <section class="mb-4">
-  <h3>Vidéo</h3>
+  <h3>🎥 Vidéo</h3>
   <div class="ratio ratio-16x9">
     <iframe
-      src="https://www.youtube.com/embed/VIDEO_ID"
-      title="OWASP Top 10 2025: IAAA Failures - TryHackMe"
+      src="https://www.youtube.com/embed/sDX14MNeeKA?rel=0&modestbranding=1&playsinline=1"
+      title="OWASP Top 10 2025: IAAA Failures"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen
     ></iframe>
   </div>
-  <p class="text-muted mt-2 mb-0">Remplacez <code>VIDEO_ID</code> par l’identifiant YouTube.</p>
 </section>
 
 <section class="mb-4">
-  <h3>Conclusion</h3>
-  <p>À compléter : bonnes pratiques à appliquer dans vos applis (dont votre blog) et votre config Firebase.</p>
+  <h3>✨ En bref</h3>
+  <p>
+    Cette room donne une base solide pour sécuriser les accès de nos applications. La règle la plus importante reste
+    de contrôler l’authentification et l’autorisation côté serveur, puis de tester régulièrement les scénarios d’abus.
+  </p>
 </section>

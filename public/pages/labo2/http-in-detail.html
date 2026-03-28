@@ -1,34 +1,46 @@
-<h1>HTTP in Detail (TryHackMe)</h1>
+<h1>HTTP in Detail</h1>
 
 <section class="mb-4">
-  <h3>Contexte</h3>
+  <h3>🧭 Contexte</h3>
   <p>
-    Cette room explique HTTP : requêtes/réponses, méthodes, headers, cookies, statuts, et la différence avec HTTPS.
-    Objectif : comprendre comment les applications web communiquent.
+    Cette room explique HTTP de façon concrète : structure d’une requête et d’une réponse, méthodes, en-têtes, cookies, codes de statut,
+    et pourquoi HTTPS change la donne sur la confidentialité et l’intégrité.
   </p>
 </section>
 
 <section class="mb-4">
-  <h3>Ce que nous avons compris</h3>
+  <h3>💭 Points clés</h3>
   <p>
-    À compléter : méthodes (GET/POST/PUT/DELETE), codes (200/301/403/404/500), rôle des headers (Host, User-Agent,
-    Authorization), et impacts sécurité (sessions, auth, injection, fuite d’info).
+    Le point clé dans ce contexte, c’est que le web n’est pas “une page”, c’est une suite d’échanges. Chaque clic peut déclencher plusieurs requêtes, avec des en-têtes qui portent du contexte.
+  </p>
+  <p>
+    Les méthodes (GET/POST surtout) et l’idée que certaines actions doivent être confirmées côté serveur, pas seulement côté interface, sont mieux comprises dans cette logique.
+    Les codes HTTP ne sont pas anecdotiques : ils disent si la ressource existe, si on est redirigé, si l’accès est refusé, ou si le serveur est en erreur.
+  </p>
+  <p>
+    Les cookies et mécanismes de session expliquent aussi pourquoi une petite faille peut devenir grosse : si on peut voler ou rejouer une session, on ne “pirate” pas toujours le mot de passe directement.
   </p>
 </section>
 
 <section class="mb-4">
-  <h3>Vidéo</h3>
+  <h3>🎥 Vidéo</h3>
   <div class="ratio ratio-16x9">
     <iframe
-      src="https://www.youtube.com/embed/VIDEO_ID"
-      title="HTTP in Detail - TryHackMe"
+      src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1&playsinline=1"
+      title="HTTP in Detail"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen
     ></iframe>
   </div>
-  <p class="text-muted mt-2 mb-0">Remplacez <code>VIDEO_ID</code> par l’identifiant YouTube.</p>
+  <p class="text-muted mt-2 mb-0">
+    Remplacez <code>VIDEO_ID</code> par l’identifiant de votre vidéo (format <code>https://www.youtube.com/embed/VOTRE_ID</code>).
+  </p>
 </section>
 
 <section class="mb-4">
-  <h3>Conclusion</h3>
-  <p>À compléter : ce que vous allez vérifier systématiquement lors d’un test web.</p>
+  <h3>✨ En bref</h3>
+  <p class="mb-0">
+    Cette room est une base indispensable pour tout ce qui touche au web : sans HTTP clair, les rooms suivantes sur les applis et les failles OWASP sont beaucoup plus floues.
+  </p>
 </section>

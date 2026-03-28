@@ -1,34 +1,52 @@
-<h1>Web Application Basics (TryHackMe)</h1>
+<h1>Web Application Basics</h1>
 
 <section class="mb-4">
-  <h3>Contexte</h3>
+  <h3>🧭 Contexte</h3>
   <p>
-    Cette room introduit les bases d’une application web et les points importants pour la sécurité (requêtes/réponses,
-    sessions, auth, entrées utilisateur, surface d’attaque).
+    Cette room pose les bases du fonctionnement d’une application web. Elle montre ce qui se passe entre le navigateur et le serveur : requêtes, réponses, sessions, authentification… soit l’essentiel de ce qu’on manipule au quotidien sans toujours en avoir conscience.
+  </p>
+  <p>
+    Elle ne se limite pas à la théorie : on apprend aussi à repérer les zones sensibles d’un site (formulaires, cookies, gestion des sessions, etc.), là où les failles les plus courantes apparaissent. C’est une bonne introduction avant les rooms OWASP plus techniques.
   </p>
 </section>
 
 <section class="mb-4">
-  <h3>Ce que nous avons compris</h3>
+  <h3>💭 Points clés</h3>
   <p>
-    À compléter : ce que vous avez appris sur le fonctionnement web, comment vous repérez les failles classiques, et
-    quelles bonnes pratiques côté dev/ops (validation, headers, TLS, logs).
+    Souvent, un site est perçu comme un ensemble de pages. Ici, l’accent est mis sur les échanges entre le client et le serveur : c’est ce qui permet d’analyser correctement le comportement d’une application.
+  </p>
+  <p>
+    On comprend que beaucoup de failles viennent de petites erreurs qu’on commet sans s’en rendre compte :
+  </p>
+  <ul>
+    <li>entrées utilisateur mal filtrées ;</li>
+    <li>mauvaise gestion des sessions ou des cookies ;</li>
+    <li>contrôles faibles ou absents côté serveur.</li>
+  </ul>
+  <p>
+    La room encourage des réflexes concrets : valider les données, sécuriser les connexions (HTTPS), appliquer les droits au bon niveau, et garder des logs exploitables pour comprendre un incident. Ces principes se réutilisent directement dans un projet comme la SAE.
   </p>
 </section>
 
 <section class="mb-4">
-  <h3>Vidéo</h3>
+  <h3>🎥 Vidéo</h3>
   <div class="ratio ratio-16x9">
     <iframe
-      src="https://www.youtube.com/embed/VIDEO_ID"
-      title="Web Application Basics - TryHackMe"
+      src="https://www.youtube.com/embed/F0NAjNU7DII?rel=0&modestbranding=1&playsinline=1"
+      title="Web Application Basics"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen
     ></iframe>
   </div>
-  <p class="text-muted mt-2 mb-0">Remplacez <code>VIDEO_ID</code> par l’identifiant YouTube.</p>
 </section>
 
 <section class="mb-4">
-  <h3>Conclusion</h3>
-  <p>À compléter : ce que vous allez appliquer pour sécuriser votre blog / services.</p>
+  <h3>✨ En bref</h3>
+  <p>
+    En synthèse, cette room constitue une base solide avant le reste du parcours OWASP. Elle rappelle que la sécurité ne se « rajoute » pas à la fin : elle se construit dès le départ, avec des choix simples et des vérifications régulières.
+  </p>
+  <p class="mb-0">
+    Pour comprendre les bases du web et limiter les erreurs les plus exploitées, le contenu reste clair, accessible, et utile pour la suite du parcours.
+  </p>
 </section>

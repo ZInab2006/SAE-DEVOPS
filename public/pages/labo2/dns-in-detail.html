@@ -1,34 +1,47 @@
-<h1>DNS in detail (TryHackMe)</h1>
+<h1>DNS in detail</h1>
 
 <section class="mb-4">
-  <h3>Contexte</h3>
+  <h3>🧭 Contexte</h3>
   <p>
-    Cette room détaille le fonctionnement du DNS : résolution de noms, enregistrements, serveurs, cache, et pourquoi
-    c’est un point critique (disponibilité, redirections, phishing).
+    Cette room zoom sur le DNS : comment un nom devient une adresse IP, qui répond à quelle étape, et pourquoi ce service est central
+    pour le web… mais aussi pour beaucoup d’attaques (détournements, usurpations, erreurs de configuration).
   </p>
 </section>
 
 <section class="mb-4">
-  <h3>Ce que nous avons compris</h3>
+  <h3>💭 Points clés</h3>
   <p>
-    À compléter : le parcours d’une requête DNS, les types d’enregistrements (A/AAAA/CNAME/MX/TXT),
-    et les risques (spoofing, mauvaise config, fuite d’infos).
+    On obtient une vision plus nette du « parcours » d’une requête DNS : résolveur, serveurs faisant autorité, cache, et enregistrements qui portent des rôles différents.
+  </p>
+  <p>
+    Les types d’enregistrements (A/AAAA, CNAME, MX, TXT, etc.) ne sont pas là pour embêter : ils servent à router le trafic, la messagerie, ou à publier des infos de validation.
+    Quand on comprend ça, des problèmes « bizarres » (site inaccessible, e-mail qui part mal) deviennent plus lisibles.
+  </p>
+  <p>
+    Côté sécurité, le DNS est un maillon critique : s’il est manipulé, on peut rediriger du monde sans forcément toucher au serveur final.
+    D’où l’importance des bonnes pratiques (DNSSEC quand c’est pertinent, surveiller les changements, limiter les accès admin).
   </p>
 </section>
 
 <section class="mb-4">
-  <h3>Vidéo</h3>
+  <h3>🎥 Vidéo</h3>
   <div class="ratio ratio-16x9">
     <iframe
-      src="https://www.youtube.com/embed/VIDEO_ID"
-      title="DNS in detail - TryHackMe"
+      src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1&playsinline=1"
+      title="DNS in detail"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen
     ></iframe>
   </div>
-  <p class="text-muted mt-2 mb-0">Remplacez <code>VIDEO_ID</code> par l’identifiant YouTube.</p>
+  <p class="text-muted mt-2 mb-0">
+    Remplacez <code>VIDEO_ID</code> par l’identifiant de votre vidéo (format <code>https://www.youtube.com/embed/VOTRE_ID</code>).
+  </p>
 </section>
 
 <section class="mb-4">
-  <h3>Conclusion</h3>
-  <p>À compléter : bonnes pratiques DNS que vous retenez.</p>
+  <h3>✨ En bref</h3>
+  <p class="mb-0">
+    En synthèse, cette room rend le DNS beaucoup moins “magique”. C’est une brique qu’on croise partout, et la comprendre aide autant en admin qu’en analyse de sécurité.
+  </p>
 </section>

@@ -1,7 +1,7 @@
-<h1>OWASP Top 10 2025: Application Design Flaws (TryHackMe)</h1>
+<h1>OWASP Top 10 2025: Application Design Flaws</h1>
 
 <section class="mb-4">
-  <h3>Contexte</h3>
+  <h3>🧭 Contexte</h3>
   <p>
     Cette room traite des failles de conception (design) : problèmes présents avant même l’implémentation,
     liés aux exigences, à l’architecture, aux flux, et aux hypothèses de sécurité.
@@ -9,26 +9,38 @@
 </section>
 
 <section class="mb-4">
-  <h3>Ce que nous avons compris</h3>
+  <h3>💭 Points clés</h3>
   <p>
-    À compléter : comment reconnaître une faille “design” vs “bug”, exemples vus, et comment on les évite
-    (threat modeling, revues, “security by design”, tests d’abus).
+    Cette room aide à comprendre qu’une faille de design n’est pas un simple bug de code.
+    Le problème existe souvent avant l’implémentation, dans la logique métier, l’architecture ou les hypothèses de départ.
+  </p>
+  <p>
+    On retient qu’on ne corrige pas ce type de faille avec un petit patch isolé. Il faut souvent revoir le flux,
+    les contrôles de confiance, ou la façon dont les droits sont attribués.
+  </p>
+  <p>
+    La démarche « security by design » prend alors tout son sens : modéliser les menaces, faire des revues en amont
+    et tester des usages malveillants avant la mise en production.
   </p>
 </section>
 
 <section class="mb-4">
-  <h3>Vidéo</h3>
+  <h3>🎥 Vidéo</h3>
   <div class="ratio ratio-16x9">
     <iframe
-      src="https://www.youtube.com/embed/VIDEO_ID"
-      title="OWASP Top 10 2025: Application Design Flaws - TryHackMe"
+      src="https://www.youtube.com/embed/qMQCuWiJrJM?rel=0&modestbranding=1&playsinline=1"
+      title="OWASP Top 10 2025: Application Design Flaws"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen
     ></iframe>
   </div>
-  <p class="text-muted mt-2 mb-0">Remplacez <code>VIDEO_ID</code> par l’identifiant YouTube.</p>
 </section>
 
 <section class="mb-4">
-  <h3>Conclusion</h3>
-  <p>À compléter : décisions de design à éviter et check-list à garder pour vos projets.</p>
+  <h3>✨ En bref</h3>
+  <p>
+    Cette room rappelle qu’un bon niveau de sécurité se décide dès la conception du projet.
+    Pour la SAE, on garde une check-list simple de design sécurisé pour éviter des erreurs structurelles.
+  </p>
 </section>

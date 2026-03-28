@@ -1,34 +1,48 @@
-<h1>How Websites Work (TryHackMe)</h1>
+<h1>How Websites Work</h1>
 
 <section class="mb-4">
-  <h3>Contexte</h3>
+  <h3>🧭 Contexte</h3>
   <p>
-    Cette room explique les briques d’un site web (front/back, navigateur, serveur, bases de données) et le chemin
-    complet d’un utilisateur jusqu’au contenu affiché.
+    Cette room explique comment un site prend vie côté utilisateur : navigateur, rendu, ressources, interaction avec un serveur,
+    et souvent une base de données derrière pour stocker ou retrouver des informations.
   </p>
 </section>
 
 <section class="mb-4">
-  <h3>Ce que nous avons compris</h3>
+  <h3>💭 Points clés</h3>
   <p>
-    À compléter : rôles du HTML/CSS/JS, serveur web, API, base de données, et où se situent les failles potentielles
-    (entrée utilisateur, auth, dépendances, configuration).
+    On retient surtout la séparation des rôles : le navigateur affiche et exécute une partie du comportement, le serveur applique les règles métier,
+    et la base gère la persistance. Quand on mélange ces responsabilités, on crée souvent des failles ou des comportements imprévisibles.
+  </p>
+  <p>
+    Le trio HTML/CSS/JavaScript prend tout son sens : structure, présentation, logique côté client. Mais la sécurité ne doit pas reposer uniquement sur le JavaScript,
+    parce qu’un utilisateur peut contourner ou modifier ce qui s’exécute dans le navigateur.
+  </p>
+  <p>
+    Enfin, la room rappelle que beaucoup d’incidents viennent de mauvaises hypothèses : “l’utilisateur ne fera pas ça”, “cette page est cachée donc introuvable”.
+    En pratique, il faut traiter chaque entrée comme potentiellement hostile.
   </p>
 </section>
 
 <section class="mb-4">
-  <h3>Vidéo</h3>
+  <h3>🎥 Vidéo</h3>
   <div class="ratio ratio-16x9">
     <iframe
-      src="https://www.youtube.com/embed/VIDEO_ID"
-      title="How Websites Work - TryHackMe"
+      src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1&playsinline=1"
+      title="How Websites Work"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen
     ></iframe>
   </div>
-  <p class="text-muted mt-2 mb-0">Remplacez <code>VIDEO_ID</code> par l’identifiant YouTube.</p>
+  <p class="text-muted mt-2 mb-0">
+    Remplacez <code>VIDEO_ID</code> par l’identifiant de votre vidéo (format <code>https://www.youtube.com/embed/VOTRE_ID</code>).
+  </p>
 </section>
 
 <section class="mb-4">
-  <h3>Conclusion</h3>
-  <p>À compléter : ce que ça vous a clarifié sur les applis web et leur sécurité.</p>
+  <h3>✨ En bref</h3>
+  <p class="mb-0">
+    Cette room aide à voir une application web comme un système complet, pas comme une page isolée. C’est exactement la vision qu’il faut avant d’aborder la sécurité applicative plus en profondeur.
+  </p>
 </section>
