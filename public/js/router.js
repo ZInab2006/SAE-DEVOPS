@@ -46,9 +46,27 @@ const allowedPages = [
 ];
 
 /**
+ * Alias courts → pages réelles (ex. room préférée d’un membre).
+ */
+const pageAliases = {
+  "zinab-room": "labo1/search-skills"
+};
+
+function resolvePageAlias(page) {
+  return pageAliases[page] || page;
+}
+
+/**
  * Charge dynamiquement une page HTML dans #content
  */
 function loadPage(page) {
+  const requested = page;
+  page = resolvePageAlias(page);
+  if (requested !== page) {
+    const url = new URL(window.location.href);
+    url.searchParams.set("page", page);
+    history.replaceState({}, "", url);
+  }
   // Sécurité : vérification whitelist
   if (!allowedPages.includes(page)) {
     page = "home";

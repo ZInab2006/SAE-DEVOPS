@@ -6,6 +6,13 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "redirects": [
+      {
+        "source": "/zinab-room",
+        "destination": "/?page=labo1/search-skills",
+        "type": 302
+      }
+    ],
     "rewrites": [
       {
         "source": "**",
