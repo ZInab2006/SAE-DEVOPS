@@ -6,7 +6,6 @@ const allowedPages = [
   "home",
   "team",
   "rooms",
-  "room-example",
   "special/firebase-services",
   "special/site-structure",
   "special/vpn-rdp",

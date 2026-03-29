@@ -15,19 +15,18 @@
     <h3>Contexte</h3>
     <p>
       Dans le cadre de la SAE DevOps (BUT2), le sujet impose de rendre le site accessible sur le web et d’exploiter l’écosystème Google Firebase.
-      Notre blog « CyberNotes » est un site entièrement statique : HTML, CSS et JavaScript servis tels quels, avec un routeur côté client qui charge les fragments de pages dans une seule <code>index.html</code>.
+      Le site est statique : HTML, CSS et JS, avec un petit routeur qui charge des morceaux de pages dans <code>index.html</code>.
       Pour ce type d’architecture, <strong>Firebase Hosting</strong> est le service adapté : il expose nos fichiers sur le réseau avec HTTPS, un déploiement rapide et un plan gratuit (Spark) suffisant pour un projet pédagogique.
     </p>
     <p>
-      Nous n’avons pas activé d’autres produits Firebase obligatoires pour cette SAE (Authentication, Firestore, etc.) : le périmètre se concentre sur la <strong>mise en ligne</strong>, la <strong>reproductibilité des déploiements</strong> et la <strong>cohérence</strong> entre le dépôt Git et ce qui est visible en production.
-      Cette page documente précisément ce que nous avons branché, comment c’est configuré, et ce que ça apporte au groupe.
+      Pas d’Auth ni de Firestore ici : seule la <strong>publication</strong> du dossier <code>public/</code> et la config minimale (<code>firebase.json</code>, <code>.firebaserc</code>).
     </p>
   </section>
 
   <section class="mb-4">
     <h3>Ce que nous avons mis en place</h3>
     <p>
-      Voici les éléments concrets présents dans le dépôt et utilisés pour publier le site.
+      Dans le dépôt, on utilise surtout :
     </p>
     <ul>
       <li>
@@ -56,8 +55,7 @@
       La configuration reste légère (deux fichiers à la racine et un dossier <code>public</code>), ce qui facilite la reprise par un autre membre ou l’évaluation du projet.
     </p>
     <p class="mb-0">
-      Pour la suite, l’équipe peut enrichir le pipeline (tests avant déploiement, prévisualisations sur pull request) sans changer de plateforme d’hébergement.
-      L’essentiel est déjà en place : une base stable pour présenter les labs, les ressources SAE et le travail collectif, avec un déploiement aligné sur les bonnes pratiques DevOps vues en cours.
+      Ça répond au besoin : site en HTTPS, déploiement reproductible depuis le dépôt.
     </p>
   </section>
 </div>

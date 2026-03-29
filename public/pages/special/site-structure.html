@@ -8,7 +8,7 @@
       Ce choix simplifie la navigation, évite de dupliquer menu et pied de page sur chaque fichier HTML, et reste entièrement compatible avec <strong>Firebase Hosting</strong> (fichiers statiques + règle de rewrite vers <code>index.html</code>).
     </p>
     <p>
-      La structure vise trois objectifs pour la SAE : <strong>cohérence visuelle</strong> (mêmes styles partout), <strong>sécurité minimale</strong> (on ne charge que des fragments autorisés), et <strong>maintenabilité</strong> (un membre ajoute un fichier sous <code>public/pages/</code>, l’inscrit dans la liste du routeur, et le menu peut pointer vers <code>?page=...</code>).
+      Objectifs : même rendu partout, liste blanche de pages côté routeur, et ajout d’une page = nouveau fichier sous <code>public/pages/</code> + entrée dans <code>router.js</code> (+ lien menu si besoin).
     </p>
   </section>
 
@@ -38,8 +38,7 @@
   <section class="mb-4">
     <h3>Extraits de code</h3>
     <p>
-      Les extraits ci-dessous sont repris du projet : ils illustrent le <strong>squelette</strong>, le <strong>chargement des partials</strong> et la <strong>logique du routeur</strong>.
-      Le dépôt contient les fichiers complets ; le site publié montre le résultat une fois ces mécanismes chargés.
+      Extraits : squelette HTML, chargement menu/footer, routeur (version simplifiée dans les blocs — voir les fichiers dans le dépôt pour le détail).
     </p>
 
     <p class="code-sample-title">1. Squelette — <code>public/index.html</code> (zones d’injection)</p>
