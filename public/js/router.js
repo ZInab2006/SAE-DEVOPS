@@ -12,6 +12,8 @@ const allowedPages = [
   "special/vpn-rdp",
   "lotl",
   "mitm",
+  "windows-command-line",
+  "active-directory-basics",
   "members/member-1",
   "members/member-2",
   "members/member-3",
