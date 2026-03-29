@@ -1,15 +1,18 @@
 <h1>Man In The Middle</h1>
 
 <section class="mb-4">
-  <h3>🧭 Contexte</h3>
+  <h3>Contexte</h3>
   <p>
     Une attaque Man In The Middle consiste à s’interposer entre deux systèmes qui communiquent afin d’écouter ou modifier les données en transit.
     Les victimes pensent échanger directement alors qu’un tiers contrôle le chemin.
   </p>
+  <p class="text-muted small mb-0">
+    Cette page se limite à expliquer le concept, les techniques courantes et les pistes de détection ; il n’y a pas de démonstration ni d’exercice de labo ici.
+  </p>
 </section>
 
 <section class="mb-4">
-  <h3>💭 Points clés</h3>
+  <h3>Points clés</h3>
   <p>
     Les attaques MITM exploitent surtout des communications mal protégées ou des configurations réseau faibles. Les techniques peuvent passer par
     l’empoisonnement ARP, le spoofing DNS ou l’interception de flux non chiffrés.
@@ -20,17 +23,139 @@
 </section>
 
 <section class="mb-4">
-  <h3>💬 Démarche du labo</h3>
-  <p>
-    Nous détaillons un scénario type d’interception, puis les contrôles à vérifier pour éviter ce type d’attaque.
-    Nous explicitons les points de validation qui permettent de conclure de façon claire dans le rapport.
-  </p>
-</section>
-
-<section class="mb-4">
-  <h3>✨ En bref</h3>
+  <h3>En bref</h3>
   <p>
     Le MITM rappelle qu’une communication non sécurisée peut compromettre des identifiants et des données sensibles. La protection repose sur
     la sécurisation des protocoles et une hygiène réseau rigoureuse.
   </p>
+</section>
+
+<section class="mb-4">
+  <h3>Vue d’ensemble</h3>
+  <p>
+    En MITM, l’attaquant se place entre des extrémités légitimes (utilisateur et service, client et serveur) pour intercepter, modifier ou rediriger le trafic.
+    Il peut espionner des identifiants ou des données de carte bancaire, ou injecter du contenu malveillant. La menace est d’autant plus forte que le chiffrement
+    ou l’authentification est faible ou absente.
+  </p>
+  <p>Les grandes étapes côté attaquant sont en général :</p>
+  <ul>
+    <li><strong>Interception</strong> : s’insérer dans le flux (faiblesses de protocoles, ARP spoofing, DNS spoofing, usurpation d’IP, point d’accès Wi‑Fi rogue, etc.).</li>
+    <li><strong>Manipulation / déchiffrement</strong> : lire ou altérer la communication, tenter de dégrader le chiffrement (ex. SSL stripping), injecter des réponses falsifiées.</li>
+  </ul>
+  <p class="small text-muted mb-0">
+    Détecter un MITM demande souvent une approche en couches : supervision réseau, validation des certificats, analyse comportementale et corrélation des journaux.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>Types d’attaques souvent cités</h3>
+  <ul>
+    <li><strong>Capture de paquets</strong> sur un réseau partagé ou Wi‑Fi ouvert, surtout si le trafic n’est pas chiffré.</li>
+    <li><strong>Détournement de session</strong> : réutilisation de jetons de session pour se faire passer pour l’utilisateur.</li>
+    <li><strong>SSL stripping</strong> : forcer ou favoriser du HTTP au lieu de HTTPS pour lire ou altérer les données en clair.</li>
+    <li><strong>Spoofing DNS</strong> : réponses DNS falsifiées pour rediriger vers un serveur contrôlé par l’attaquant.</li>
+    <li><strong>Usurpation d’IP</strong> : paquets forgés pour imiter une machine de confiance.</li>
+    <li><strong>Point d’accès Wi‑Fi malveillant</strong> : faire transiter le trafic des victimes par une borne contrôlée par l’attaquant.</li>
+  </ul>
+</section>
+
+<section class="mb-4">
+  <h3>MITM et Cyber Kill Chain</h3>
+  <p>
+    Pour analyser un incident, on peut replacer le MITM dans un modèle de chaîne d’attaque (ex. Cyber Kill Chain : reconnaissance, armement, livraison, exploitation,
+    installation, commande et contrôle, actions sur les objectifs). Le MITM est souvent mobilisé surtout aux phases <strong>Exploitation</strong> et <strong>Installation</strong>.
+  </p>
+  <p>
+    En exploitation, l’attaquant abuse de la confiance ou des limites des protocoles (ARP, DNS, etc.) pour s’interposer. En installation, la position « au milieu » peut servir
+    à injecter des charges (exploit navigateur, dropper, RAT) dans des téléchargements ou des flux non protégés. Détecter un MITM est donc un signal fort : l’adversaire est
+    souvent déjà engagé dans les étapes moyennes d’une intrusion.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>ARP et ARP spoofing</h3>
+  <p>
+    <strong>ARP</strong> (Address Resolution Protocol) associe des adresses IP à des adresses MAC sur un réseau local. Une machine demande « qui a telle IP ? » et la bonne machine répond avec sa MAC.
+  </p>
+  <p>
+    <strong>ARP spoofing</strong> : l’attaquant envoie de fausses réponses ARP pour associer sa propre MAC à une IP légitime (souvent la passerelle). Le trafic vers la passerelle transite alors par l’attaquant.
+    Cela fonctionne en partie parce qu’ARP n’authentifie pas les annonces : n’importe quel hôte peut envoyer des réponses « is-at » non sollicitées.
+  </p>
+  <p>Indicateurs utiles lors d’une analyse (captures, journaux) :</p>
+  <ul>
+    <li>plusieurs MAC pour la même IP (mappings dupliqués) ;</li>
+    <li>beaucoup de réponses ARP sans requête correspondante (réponses « gratuites » / non sollicitées) ;</li>
+    <li>volume anormal de trafic ARP sur une courte période ;</li>
+    <li>schémas de redirection de passerelle incohérents ;</li>
+    <li>outils comme Wireshark peuvent signaler des doublons d’adresse (<code>arp.duplicate-address-detected</code>, etc.).</li>
+  </ul>
+  <p class="small text-muted mb-0">
+    En ligne de commande, <code>arp -a</code> permet aussi de repérer des associations IP/MAC incohérentes sur un poste.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>DNS et DNS spoofing</h3>
+  <p>
+    <strong>DNS</strong> traduit des noms (ex. <code>www.example.com</code>) en adresses IP. En <strong>spoofing DNS</strong> (ou empoisonnement de cache), l’attaquant fournit une fausse réponse
+    pour qu’un nom pointe vers une IP malveillante — souvent après s’être placé sur le LAN (par ex. via ARP spoofing) pour intercepter les requêtes.
+  </p>
+  <p>Indicateurs possibles :</p>
+  <ul>
+    <li>plusieurs réponses contradictoires pour la même requête ;</li>
+    <li>réponse DNS provenant d’un résolveur inattendu (pas celui configuré) ;</li>
+    <li>TTL anormalement courts (quelques secondes) pour forcer le renouvellement de l’entrée falsifiée ;</li>
+    <li>réponses sans requête cliente visible correspondante.</li>
+  </ul>
+</section>
+
+<section class="mb-4">
+  <h3>SSL stripping</h3>
+  <p>
+    Le <strong>SSL stripping</strong> consiste à intercepter le trafic et à empêcher ou retirer l’usage du chiffrement TLS entre le client et le serveur légitime, souvent en relayant en HTTP vers la victime
+    tout en gardant une session HTTPS côté serveur. Les identifiants ou données sensibles peuvent alors transiter en clair côté client.
+  </p>
+  <p>Indicateurs possibles dans les captures :</p>
+  <ul>
+    <li>requête initiale vers le port 443 puis bascule rapide vers du trafic HTTP (port 80) pour le même site ;</li>
+    <li>redirections HTTP répétées (codes 301/302) depuis des URLs HTTPS ;</li>
+    <li>échecs ou alertes de certificat si l’attaquant proxyfie de façon plus visible.</li>
+  </ul>
+  <p>
+    Une chaîne d’attaque typique en entreprise peut enchaîner : empoisonnement ARP sur la passerelle → réponses DNS falsifiées vers un domaine interne → connexion de la victime vers l’attaquant
+    avec stripping SSL et capture d’identifiants en clair sur HTTP.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>Scénario type (investigation)</h3>
+  <p>
+    Les formations type « détection MITM » présentent souvent un fil conducteur : alerte sur un LAN d’entreprise, analyse de captures (<code>.pcap</code>) et de journaux centralisés
+    (par ex. dans un SIEM comme Splunk), recherche des trois briques ci-dessus — ARP, DNS, puis preuves de dégradation TLS — pour reconstituer la chronologie et les indicateurs de compromission.
+  </p>
+  <p class="small text-muted mb-0">
+    Les prérequis habituels incluent une base sur Wireshark, les fondamentaux de sécurité réseau et la découverte / détection sur les réseaux.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>Résumé détection</h3>
+  <ul>
+    <li><strong>ARP</strong> : doublons MAC/IP, réponses gratuites, anomalies dans le cache ARP.</li>
+    <li><strong>DNS</strong> : réponses multiples ou depuis des sources non prévues pour un même nom.</li>
+    <li><strong>SSL stripping</strong> : données sensibles en clair sur HTTP là où HTTPS est attendu, ou disparition des négociations TLS vers le vrai serveur.</li>
+  </ul>
+  <p class="small text-muted mb-0">
+    En analyse de captures, des filtres d’affichage courants isolent les protocoles concernés (ex. <code>arp</code>, <code>dns</code>, <code>tls || ssl</code>, <code>http</code>) ;
+    on peut affiner sur les opcodes ARP, les drapeaux DNS « réponse », ou le SNI TLS pour un nom d’hôte précis.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>Ressources</h3>
+  <ul class="mb-0">
+    <li>Documentation et parcours sur la capture et l’analyse de trafic (Wireshark, etc.) ;</li>
+    <li>MITRE ATT&amp;CK pour croiser techniques et tactiques ;</li>
+    <li>Rooms complémentaires sur l’exfiltration de données ou l’analyse d’incident réseau.</li>
+  </ul>
 </section>

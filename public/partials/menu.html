@@ -3,7 +3,7 @@ Menu Bootstrap
 Les liens utilisent ?page=
 -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
+  <div class="container-fluid navbar-inner">
     <a class="navbar-brand brand" href="?page=home" aria-label="CyberNotes - Accueil">
       <span class="brand-mark" aria-hidden="true">
         <svg viewBox="0 0 64 64" focusable="false" aria-hidden="true">
@@ -17,50 +17,53 @@ Les liens utilisent ?page=
         <span class="brand-cyber">Cyber</span><span class="brand-notes">Notes</span>
       </span>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+    <button class="navbar-toggler ms-auto d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Ouvrir le menu">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="?page=home">Accueil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="?page=team">Équipe</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="?page=rooms">Rooms</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="specialPagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Ressources SAE
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="specialPagesDropdown">
-            <li><a class="dropdown-item" href="?page=special/firebase-services">Services Firebase</a></li>
-            <li><a class="dropdown-item" href="?page=special/site-structure">Structure du site</a></li>
-            <li><a class="dropdown-item" href="?page=special/group-organization">Organisation du groupe</a></li>
-            <li><a class="dropdown-item" href="?page=special/vpn-rdp">Connexion VPN et RDP</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="?page=lotl">Living Off The Land</a></li>
-            <li><a class="dropdown-item" href="?page=mitm">Man In The Middle</a></li>
+      <div class="navbar-cluster d-flex flex-column flex-lg-row align-items-lg-center flex-lg-grow-1 w-100 gap-2 gap-lg-3">
+        <div class="navbar-cluster-links d-flex flex-lg-grow-1 justify-content-lg-center">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="?page=home">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?page=team" title="Organisation du groupe et rôles">Équipe</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?page=rooms">Rooms</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="specialPagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Ressources SAE
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="specialPagesDropdown">
+                <li><a class="dropdown-item" href="?page=special/firebase-services">Services Firebase</a></li>
+                <li><a class="dropdown-item" href="?page=special/site-structure">Structure du site</a></li>
+                <li><a class="dropdown-item" href="?page=special/vpn-rdp">Connexion VPN et RDP</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="?page=lotl">Living Off The Land</a></li>
+                <li><a class="dropdown-item" href="?page=mitm">Man In The Middle</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="membersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Fiches personnelles : room préférée et profil Careers in Cyber">
+                Membres
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="membersDropdown">
+                <li><a class="dropdown-item" href="?page=members/member-1">OUTMANI Zinab</a></li>
+                <li><a class="dropdown-item" href="?page=members/member-2">HERBAUX Jules</a></li>
+                <li><a class="dropdown-item" href="?page=members/member-3">BAKRI Mohammed</a></li>
+                <li><a class="dropdown-item" href="?page=members/member-4">KIME Marwa</a></li>
+              </ul>
+            </li>
           </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="membersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Membres
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="membersDropdown">
-            <li><a class="dropdown-item" href="?page=members/member-1">Membre 1</a></li>
-            <li><a class="dropdown-item" href="?page=members/member-2">Membre 2</a></li>
-            <li><a class="dropdown-item" href="?page=members/member-3">Membre 3</a></li>
-            <li><a class="dropdown-item" href="?page=members/member-4">Membre 4</a></li>
-          </ul>
-        </li>
-      </ul>
-      <div class="d-flex gap-2 align-items-center">
-        <button id="themeToggle" class="btn btn-sm btn-primary" type="button" aria-label="Basculer le thème">
-          Thème : Sombre
-        </button>
+        </div>
+        <div class="navbar-cluster-theme d-flex align-items-center justify-content-center justify-content-lg-end flex-shrink-0">
+          <button id="themeToggle" class="btn btn-sm btn-primary" type="button" aria-label="Basculer le thème">
+            Thème : Sombre
+          </button>
+        </div>
       </div>
     </div>
   </div>

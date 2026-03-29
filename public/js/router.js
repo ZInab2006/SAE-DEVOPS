@@ -1,6 +1,6 @@
 /**
  * Liste des pages AUTORISÉES
- * 👉 évite qu'un utilisateur charge n'importe quel fichier (sécurité)
+ * Évite qu'un utilisateur charge n'importe quel fichier (sécurité).
  */
 const allowedPages = [
   "home",
@@ -9,7 +9,6 @@ const allowedPages = [
   "room-example",
   "special/firebase-services",
   "special/site-structure",
-  "special/group-organization",
   "special/vpn-rdp",
   "lotl",
   "mitm",
@@ -24,6 +23,8 @@ const allowedPages = [
   "labo1/windows-fundamentals-1",
   "labo1/windows-fundamentals-2",
   "labo1/windows-fundamentals-3",
+  "labo1/windows-command-line",
+  "labo1/active-directory-basics",
 
   // Labo 2 — Pre Security (Partie II)
   "labo2/careers-in-cyber",
@@ -47,9 +48,29 @@ const allowedPages = [
 ];
 
 /**
+ * Alias courts → pages réelles (ex. room préférée d’un membre).
+ */
+const pageAliases = {
+  "zinab-room": "labo1/search-skills",
+  "windows-command-line": "labo1/windows-command-line",
+  "active-directory-basics": "labo1/active-directory-basics"
+};
+
+function resolvePageAlias(page) {
+  return pageAliases[page] || page;
+}
+
+/**
  * Charge dynamiquement une page HTML dans #content
  */
 function loadPage(page) {
+  const requested = page;
+  page = resolvePageAlias(page);
+  if (requested !== page) {
+    const url = new URL(window.location.href);
+    url.searchParams.set("page", page);
+    history.replaceState({}, "", url);
+  }
   // Sécurité : vérification whitelist
   if (!allowedPages.includes(page)) {
     page = "home";

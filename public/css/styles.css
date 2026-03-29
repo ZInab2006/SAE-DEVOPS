@@ -41,51 +41,79 @@
   --info-text: rgba(255,255,255,0.86);
   --surface-bg: linear-gradient(180deg, rgba(5, 8, 13, 0.86), rgba(5, 8, 13, 0.62));
 
+  /* blocs de code (pre) — contraste lisible en thème sombre */
+  --pre-bg: #0f1319;
+  --pre-border: rgba(255, 255, 255, 0.18);
+  --pre-text: rgba(248, 250, 252, 0.98);
+  --pre-code: #86efac;
+
+  --kbd-bg: rgba(255, 255, 255, 0.10);
+  --kbd-border: rgba(255, 255, 255, 0.22);
+  --kbd-text: rgba(255, 255, 255, 0.92);
+
   /* background gradients (keep subtle) */
   /* keep green only as a top hint (avoid green at bottom) */
   --bg-grad-1: radial-gradient(900px 520px at 12% -12%, rgba(46, 229, 157, 0.06), transparent 64%);
   --bg-grad-2: radial-gradient(900px 640px at 90% -8%, rgba(0, 194, 255, 0.11), transparent 62%);
   --bg-grad-3: radial-gradient(1100px 900px at 60% 112%, rgba(0, 194, 255, 0.06), transparent 62%);
+
+  /* Menu fixe : espace réservé pour que le contenu ne passe pas sous la barre */
+  --nav-fixed-offset: 5.75rem;
 }
 
 [data-theme="light"]{
-  /* make light theme punchier (less "flat") */
-  --bg: #f2f6ff;
-  --panel: rgba(255, 255, 255, 0.78);
-  --panel-2: rgba(255, 255, 255, 0.92);
-  --border: rgba(10, 14, 18, 0.14);
-  --text: rgba(10, 14, 18, 0.88);
-  --muted: rgba(10, 14, 18, 0.66);
-  --soft: rgba(10, 14, 18, 0.12);
-  --shadow: 0 18px 50px rgba(10,14,18,.10);
-  --ring: 0 0 0 3px rgba(46, 229, 157, 0.26);
+  /*
+   * Thème clair « Air & Slate » : fond bleu-gris très doux, surfaces blanches,
+   * texte ardoise, accents teal + indigo (reposant pour les longues lectures).
+   */
+  --accent: #0d9488;
+  --accent-2: #6366f1;
 
-  --heading: rgba(10,14,18,0.92);
-  --link: rgba(10, 128, 86, 0.98);
-  --link-hover: rgba(8, 112, 75, 1);
-  --nav-bg: rgba(255, 255, 255, 0.86);
-  --nav-border: rgba(10, 14, 18, 0.12);
-  --nav-link: rgba(10,14,18,0.70);
-  --nav-link-hover: rgba(10,14,18,0.90);
-  --nav-hover-bg: rgba(10,14,18,0.05);
-  --nav-brand: rgba(10,14,18,0.92);
-  --dropdown-bg: rgba(255, 255, 255, 0.96);
-  --dropdown-border: rgba(10,14,18,0.12);
-  --dropdown-item: rgba(10,14,18,0.80);
-  --dropdown-item-hover: rgba(10,14,18,0.94);
-  --dropdown-hover-bg: rgba(10,14,18,0.06);
-  --media-border: rgba(10,14,18,0.12);
-  --footer-border: rgba(10,14,18,0.12);
-  --footer-text: rgba(10,14,18,0.60);
+  --bg: #e4e9f0;
+  --panel: rgba(255, 255, 255, 0.9);
+  --panel-2: #ffffff;
+  --border: rgba(15, 23, 42, 0.09);
+  --text: #0f172a;
+  --muted: #64748b;
+  --soft: rgba(15, 23, 42, 0.06);
+  --shadow: 0 20px 50px rgba(15, 23, 42, 0.07);
+  --ring: 0 0 0 3px color-mix(in oklab, var(--accent) 26%, transparent);
 
-  --info-bg: rgba(0, 194, 255, 0.12);
-  --info-border: rgba(0, 194, 255, 0.26);
-  --info-text: rgba(10,14,18,0.86);
-  --surface-bg: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.82));
+  --heading: #0f172a;
+  --link: #0f766e;
+  --link-hover: #115e59;
+  --nav-bg: rgba(255, 255, 255, 0.88);
+  --nav-border: rgba(15, 23, 42, 0.1);
+  --nav-link: rgba(51, 65, 85, 0.88);
+  --nav-link-hover: #0f172a;
+  --nav-hover-bg: color-mix(in oklab, var(--accent) 11%, transparent);
+  --nav-brand: #0f172a;
+  --dropdown-bg: rgba(255, 255, 255, 0.98);
+  --dropdown-border: rgba(15, 23, 42, 0.1);
+  --dropdown-item: #334155;
+  --dropdown-item-hover: #0f172a;
+  --dropdown-hover-bg: color-mix(in oklab, var(--accent) 8%, white);
+  --media-border: rgba(15, 23, 42, 0.11);
+  --footer-border: rgba(15, 23, 42, 0.1);
+  --footer-text: #64748b;
 
-  --bg-grad-1: radial-gradient(1100px 520px at 10% -12%, rgba(46, 229, 157, 0.10), transparent 62%);
-  --bg-grad-2: radial-gradient(1100px 640px at 92% -8%, rgba(0, 194, 255, 0.12), transparent 62%);
-  --bg-grad-3: radial-gradient(1100px 900px at 60% 112%, rgba(0, 194, 255, 0.06), transparent 64%);
+  --info-bg: color-mix(in oklab, var(--accent-2) 9%, white);
+  --info-border: color-mix(in oklab, var(--accent-2) 24%, transparent);
+  --info-text: #0f172a;
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.96));
+
+  --bg-grad-1: radial-gradient(1000px 520px at 10% -12%, rgba(13, 148, 136, 0.1), transparent 62%);
+  --bg-grad-2: radial-gradient(900px 600px at 92% 0%, rgba(99, 102, 241, 0.09), transparent 60%);
+  --bg-grad-3: radial-gradient(1000px 820px at 50% 108%, rgba(13, 148, 136, 0.045), transparent 58%);
+
+  --pre-bg: #f1f5f9;
+  --pre-border: rgba(15, 23, 42, 0.12);
+  --pre-text: #1e293b;
+  --pre-code: #0f766e;
+
+  --kbd-bg: #f8fafc;
+  --kbd-border: rgba(15, 23, 42, 0.12);
+  --kbd-text: #334155;
 }
 
 html, body{
@@ -99,7 +127,7 @@ body{
   font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", "Noto Sans", "Ubuntu", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 12px;
+  padding-top: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -133,28 +161,36 @@ body::after{
 
 [data-theme="light"] body::before{
   background-image:
-    linear-gradient(145deg, rgba(242, 246, 255, 0.90), rgba(242, 246, 255, 0.80)),
+    linear-gradient(160deg, rgba(228, 233, 240, 0.96), rgba(241, 245, 249, 0.9)),
     url("https://images.wallpapersden.com/image/download/programming-coding-language_bGhpbm6UmZqaraWkpJRmbmdlrWZlbWU.jpg");
+  filter: saturate(0.72) brightness(1.06);
 }
 
 main.container{
   flex: 1;
   position: relative;
+  /* Décale le contenu sous le menu en position fixed (toute page, tout scroll) */
+  padding-top: calc(var(--nav-fixed-offset) + 0.5rem);
 }
 
 #footer{
   margin-top: auto;
 }
 
-/* Ensure real content overlays */
-#menu, #content, #footer{
+/* Contenu et pied de page : sous le menu fixe */
+#content, #footer{
   position: relative;
   z-index: 1;
 }
 
-/* Keep navigation above animated/content layers */
+/* Menu : toujours visible (fixe en haut de l’écran, toutes pages, tout défilement) */
 #menu{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 2000;
+  padding: 8px 12px 0;
 }
 
 /* Top scroll progress bar */
@@ -183,7 +219,7 @@ main.container{
 }
 
 [data-theme="light"] ::selection{
-  background: rgba(46, 229, 157, 0.22);
+  background: color-mix(in oklab, var(--accent) 28%, transparent);
 }
 
 /* Layout tweaks */
@@ -191,8 +227,9 @@ main.container{
   max-width: 1040px;
 }
 
+/* Largeur : celle du container (max 1040px), sans colonne interne plus étroite — évite l’effet « trop centré » */
 #content{
-  padding: 18px 0 0 0;
+  padding: 22px 18px 44px;
 }
 
 /* Home / marketing blocks */
@@ -293,23 +330,39 @@ main.container{
 
 [data-theme="light"] .hero{
   background:
-    radial-gradient(900px 420px at 20% 0%, rgba(46, 229, 157, 0.10), transparent 62%),
-    radial-gradient(900px 420px at 90% 0%, rgba(0, 194, 255, 0.10), transparent 62%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92));
+    radial-gradient(900px 420px at 16% 0%, rgba(13, 148, 136, 0.11), transparent 62%),
+    radial-gradient(900px 420px at 94% 0%, rgba(99, 102, 241, 0.09), transparent 62%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(248, 250, 252, 0.96));
+  border-color: color-mix(in oklab, var(--border) 78%, var(--accent) 14%);
 }
 
 [data-theme="light"] .hero-canvas{
-  opacity: 0.16;
-  mix-blend-mode: normal;
+  opacity: 0.1;
+  mix-blend-mode: multiply;
 }
 
 [data-theme="light"] .hero::after{
-  opacity: 0.10;
-  background: radial-gradient(600px 220px at 50% 0%, rgba(0, 194, 255, 0.08), transparent 60%);
+  opacity: 0.11;
+  background: radial-gradient(600px 220px at 50% 0%, rgba(13, 148, 136, 0.08), transparent 60%);
 }
 
 [data-theme="light"] .hero[data-parallax]::before{
-  opacity: 0.25;
+  opacity: 0.2;
+  background: conic-gradient(from 180deg,
+    rgba(13, 148, 136, 0),
+    rgba(13, 148, 136, 0.38),
+    rgba(99, 102, 241, 0.34),
+    rgba(13, 148, 136, 0));
+}
+
+[data-theme="light"] .glitch::before{
+  color: color-mix(in oklab, var(--accent-2) 82%, #1e293b 6%);
+}
+[data-theme="light"] .glitch::after{
+  color: color-mix(in oklab, var(--accent) 78%, #1e293b 5%);
+}
+[data-theme="light"] .hero .kicker .dot{
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 16%, transparent);
 }
 .hero .kicker{
   display: inline-flex;
@@ -428,6 +481,13 @@ main.container{
   border-color: color-mix(in oklab, var(--border) 70%, var(--accent));
   box-shadow: 0 26px 80px rgba(0,0,0,.55);
 }
+
+[data-theme="light"] .feature:hover{
+  box-shadow: 0 22px 56px rgba(15, 23, 42, 0.1);
+}
+[data-theme="light"] .feature::after{
+  background: radial-gradient(420px 240px at 30% 0%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 65%);
+}
 .feature{
   position: relative;
 }
@@ -475,12 +535,32 @@ h3{
   font-weight: 700;
   letter-spacing: -0.02em;
   font-size: 1.15rem;
-  margin: 0 0 10px 0;
+  margin: 0 0 14px 0;
   color: var(--heading);
 }
 
 p{
   color: var(--muted);
+  line-height: 1.72;
+}
+
+/* Prose dans les pages chargées : respiration entre paragraphes et listes */
+#content section p{
+  margin-bottom: 0.9em;
+}
+#content section p:last-child{
+  margin-bottom: 0;
+}
+#content section ul,
+#content section ol{
+  margin-top: 0.35em;
+  margin-bottom: 1em;
+  padding-left: 1.35rem;
+}
+#content section li + li{
+  margin-top: 0.4em;
+}
+#content section li{
   line-height: 1.65;
 }
 
@@ -515,9 +595,59 @@ code{
 }
 
 [data-theme="light"] code{
-  color: rgba(8, 112, 75, 1);
-  background: rgba(46, 229, 157, 0.12);
-  border-color: rgba(8, 112, 75, 0.20);
+  color: var(--accent);
+  background: color-mix(in oklab, var(--accent) 10%, white);
+  border-color: color-mix(in oklab, var(--accent) 26%, transparent);
+}
+
+/* Blocs multilignes : ne pas hériter du fond Bootstrap (bg-body-secondary) illisible en sombre */
+pre{
+  margin: 0.75rem 0;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  tab-size: 2;
+  color: var(--pre-text);
+  background: var(--pre-bg) !important;
+  border: 1px solid var(--pre-border);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="light"] pre{
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+pre code{
+  color: var(--pre-code) !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  font-size: inherit;
+  white-space: pre;
+  word-break: normal;
+}
+
+pre.bg-body-secondary{
+  background: var(--pre-bg) !important;
+  color: var(--pre-text);
+}
+
+kbd{
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.88em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+  color: var(--kbd-text);
+  background: var(--kbd-bg);
+  border: 1px solid var(--kbd-border);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] kbd{
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 /* Panels for your pages */
@@ -526,14 +656,17 @@ section{
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 18px 18px 16px 18px;
+  padding: 22px 22px 20px;
   transition: transform .25s ease, border-color .25s ease, background-color .25s ease, box-shadow .25s ease;
 }
 
-[data-theme="light"] section{ box-shadow: 0 18px 40px rgba(10,14,18,0.10); }
+[data-theme="light"] section{
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+  border-color: color-mix(in oklab, var(--border) 82%, var(--accent) 10%);
+}
 
 section + section{
-  margin-top: 14px;
+  margin-top: 22px;
 }
 
 /* Room pages: no big "blocks" for each section */
@@ -542,7 +675,7 @@ html[data-page="room-example"] #content{
   max-width: 980px;
   margin-left: auto;
   margin-right: auto;
-  padding: 22px 18px 18px 18px;
+  padding: 28px 26px 28px 26px;
   background: var(--surface-bg);
   backdrop-filter: blur(10px);
   border: 1px solid color-mix(in oklab, var(--border) 80%, rgba(255,255,255,0.10));
@@ -551,7 +684,23 @@ html[data-page="room-example"] #content{
 }
 
 [data-theme="light"] html[data-page^="labo"] #content,
-[data-theme="light"] html[data-page="room-example"] #content{ backdrop-filter: blur(8px); }
+[data-theme="light"] html[data-page="room-example"] #content{
+  backdrop-filter: blur(12px);
+  box-shadow: 0 22px 56px rgba(15, 23, 42, 0.07);
+  border-color: color-mix(in oklab, var(--border) 78%, var(--accent) 10%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(241, 245, 249, 0.94));
+}
+
+[data-theme="light"] html[data-page^="labo"] section + section,
+[data-theme="light"] html[data-page="room-example"] section + section{
+  border-top-color: color-mix(in oklab, var(--border) 85%, var(--accent) 8%);
+}
+
+[data-theme="light"] html[data-page^="labo"] section h3::before,
+[data-theme="light"] html[data-page="room-example"] section h3::before{
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 16%, transparent);
+}
 
 html[data-page^="labo"] #content > h1,
 html[data-page="room-example"] #content > h1{
@@ -569,8 +718,8 @@ html[data-page="room-example"] section{
 
 html[data-page^="labo"] section + section,
 html[data-page="room-example"] section + section{
-  margin-top: 18px;
-  padding-top: 18px;
+  margin-top: 22px;
+  padding-top: 22px;
   border-top: 1px solid color-mix(in oklab, var(--border) 75%, transparent);
 }
 
@@ -579,7 +728,7 @@ html[data-page="room-example"] section h3{
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 html[data-page^="labo"] section h3::before,
@@ -601,6 +750,79 @@ html[data-page="room-example"] section h3::before{
   backdrop-filter: blur(10px);
   transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
   z-index: 2001;
+}
+
+/* Logo à gauche, liens centrés dans la barre, bouton thème à droite (≥ lg) */
+@media (min-width: 992px){
+  #menu .navbar-inner{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  #menu .navbar-expand-lg .navbar-collapse{
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 0;
+  }
+  #menu .navbar-cluster{
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+  #menu .navbar-cluster-links{
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    min-width: 0;
+  }
+  #menu .navbar-cluster-links .navbar-nav{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 0.25rem;
+  }
+  #menu .navbar-cluster-theme{
+    flex: 0 0 auto;
+  }
+}
+
+/*
+ * Thème clair : la classe Bootstrap navbar-dark impose du texte clair (--bs-navbar-*).
+ * Avec notre fond crème (--nav-bg), il faut forcer du texte foncé (sinon « blanc sur blanc »).
+ */
+[data-theme="light"] .navbar.navbar-dark{
+  --bs-navbar-color: rgba(51, 65, 85, 0.92);
+  --bs-navbar-hover-color: #0f172a;
+  --bs-navbar-active-color: #0f172a;
+  --bs-navbar-disabled-color: rgba(100, 116, 139, 0.55);
+  --bs-navbar-brand-color: var(--nav-brand);
+  --bs-navbar-brand-hover-color: var(--nav-brand);
+  --bs-navbar-toggler-border-color: color-mix(in oklab, var(--nav-border) 75%, var(--accent) 18%);
+}
+
+[data-theme="light"] .navbar.navbar-dark .nav-link{
+  color: var(--nav-link) !important;
+}
+
+[data-theme="light"] .navbar.navbar-dark .nav-link:hover,
+[data-theme="light"] .navbar.navbar-dark .nav-link:focus{
+  color: var(--nav-link-hover) !important;
+}
+
+[data-theme="light"] .navbar.navbar-dark .nav-link.show,
+[data-theme="light"] .navbar.navbar-dark .nav-link.active{
+  color: var(--nav-link-hover) !important;
+}
+
+/* Flèche des menus déroulants : visible sur fond clair */
+[data-theme="light"] .navbar.navbar-dark .nav-link.dropdown-toggle::after{
+  border-top-color: rgba(51, 65, 85, 0.65);
+}
+
+[data-theme="light"] .navbar-dark .navbar-toggler-icon{
+  /* Icône hamburger prévue pour fond sombre → inverser sur fond clair */
+  filter: brightness(0) saturate(100%) invert(0.22);
 }
 
 .navbar .navbar-brand{
@@ -670,6 +892,12 @@ html[data-page="room-example"] section h3::before{
   border: 1px solid rgba(46, 229, 157, 0.18);
 }
 
+[data-theme="light"] .navbar .nav-link.active{
+  background: color-mix(in oklab, var(--accent) 14%, transparent);
+  border: 1px solid color-mix(in oklab, var(--accent) 32%, transparent);
+  color: var(--nav-link-hover);
+}
+
 .dropdown-menu{
   background: var(--dropdown-bg);
   border: 1px solid var(--dropdown-border);
@@ -734,6 +962,155 @@ html[data-page="room-example"] section h3::before{
   margin: 0 0 8px 0;
 }
 
+/* Page équipe — cartes lisibles sur le fond « code » (contraste + profondeur) */
+.team-page .card{
+  overflow: hidden;
+  background: linear-gradient(
+    165deg,
+    rgba(16, 20, 30, 0.98) 0%,
+    rgba(10, 14, 22, 0.99) 50%,
+    rgba(7, 10, 17, 1) 100%
+  );
+  border: 1px solid color-mix(in oklab, var(--border) 55%, rgba(255, 255, 255, 0.12));
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 20px 48px rgba(0, 0, 0, 0.55),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  isolation: isolate;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+.team-page .card:hover{
+  transform: translateY(-3px);
+  border-color: color-mix(in oklab, var(--accent) 28%, var(--border));
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 28px 64px rgba(0, 0, 0, 0.6),
+    0 0 0 1px color-mix(in oklab, var(--accent) 22%, transparent);
+}
+.team-page .card .card-body{
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(8, 11, 18, 0.88), rgba(6, 9, 15, 0.95));
+}
+.team-page .card .team-card-media + .card-body{
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0 0 calc(var(--radius) - 1px) calc(var(--radius) - 1px);
+}
+.team-page .team-card-body-min{
+  padding: 14px 16px 16px;
+}
+.team-page .team-card-body-min .team-member-name{
+  margin-bottom: 8px;
+  font-size: 1.12rem;
+}
+
+/* Zone photo commune (image réelle ou emplacement) */
+.team-card-media{
+  position: relative;
+  z-index: 0;
+  flex-shrink: 0;
+}
+.team-photo-slot--empty{
+  height: 168px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 12px;
+  text-align: center;
+  background:
+    repeating-linear-gradient(
+      -18deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0.02) 10px,
+      transparent 10px,
+      transparent 20px
+    ),
+    linear-gradient(155deg, rgba(20, 26, 38, 0.96), rgba(10, 14, 22, 0.99));
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+.team-photo-slot-initials{
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 2.8vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.32);
+  line-height: 1;
+}
+.team-photo-slot-hint{
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.38);
+}
+[data-theme="light"] .team-photo-slot--empty{
+  background:
+    repeating-linear-gradient(
+      -18deg,
+      rgba(15, 23, 42, 0.03),
+      rgba(15, 23, 42, 0.03) 10px,
+      transparent 10px,
+      transparent 20px
+    ),
+    linear-gradient(180deg, #eef2f7, #e2e8f0);
+  border-bottom: 1px dashed color-mix(in oklab, var(--border) 80%, var(--accent) 15%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+[data-theme="light"] .team-photo-slot-initials{
+  color: rgba(15, 23, 42, 0.2);
+}
+[data-theme="light"] .team-photo-slot-hint{
+  color: rgba(51, 65, 85, 0.55);
+}
+.team-page .card .text-muted{
+  color: rgba(214, 222, 235, 0.88) !important;
+}
+.team-page .card p{
+  color: rgba(235, 240, 248, 0.92);
+}
+.team-page .card a:not(.btn){
+  color: color-mix(in oklab, var(--link) 92%, white);
+  font-weight: 600;
+}
+.team-page .card a:not(.btn):hover{
+  color: var(--link-hover);
+}
+
+[data-theme="light"] .team-page .card{
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  border: 1px solid color-mix(in oklab, var(--border) 75%, var(--accent) 12%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 16px 40px rgba(15, 23, 42, 0.1),
+    0 4px 12px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+[data-theme="light"] .team-page .card:hover{
+  border-color: color-mix(in oklab, var(--accent) 35%, var(--border));
+  box-shadow:
+    0 22px 50px rgba(15, 23, 42, 0.12),
+    0 0 0 1px color-mix(in oklab, var(--accent) 18%, transparent);
+}
+[data-theme="light"] .team-page .card .card-body{
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.96));
+}
+[data-theme="light"] .team-page .card .text-muted{
+  color: var(--muted) !important;
+}
+[data-theme="light"] .team-page .card p{
+  color: var(--muted);
+}
+[data-theme="light"] .team-profile-photo{
+  border-bottom-color: color-mix(in oklab, var(--border) 85%, var(--accent) 8%) !important;
+  box-shadow: none;
+}
+
 .team-member-name{
   font-family: var(--font-display);
   font-weight: 800;
@@ -761,6 +1138,8 @@ html[data-page="room-example"] section h3::before{
   object-fit: cover;
   object-position: center top;
   display: block;
+  position: relative;
+  z-index: 0;
 }
 /* Placeholder quand la photo n’est pas encore dans img/team/ */
 .team-page .team-profile-placeholder{
@@ -821,13 +1200,15 @@ html[data-page="room-example"] section h3::before{
 }
 
 /* Section organisation : même pastille verte que les pages Ressources */
-.team-page section.mt-4 h3{
+.team-page section.mt-4 h3,
+.team-page section.mt-5 h3{
   display: inline-flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 14px;
 }
-.team-page section.mt-4 h3::before{
+.team-page section.mt-4 h3::before,
+.team-page section.mt-5 h3::before{
   content: "";
   width: 10px;
   height: 10px;
@@ -835,6 +1216,32 @@ html[data-page="room-example"] section h3::before{
   border-radius: 999px;
   background: color-mix(in oklab, var(--accent) 70%, var(--accent-2));
   box-shadow: 0 0 0 4px rgba(46, 229, 157, 0.10);
+}
+
+/* Retour (fiches membres, etc.) — lien avec flèche */
+.page-back{
+  margin-top: 0;
+}
+.page-back-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.925rem;
+  font-weight: 500;
+  color: var(--link);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.5rem 0.35rem 0.25rem;
+  margin-left: -0.25rem;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.page-back-link:hover{
+  color: var(--link-hover);
+  background: var(--nav-hover-bg);
+}
+.page-back-icon{
+  flex-shrink: 0;
+  opacity: 0.95;
 }
 
 /* Fiche membre : en-tête avec photo */
@@ -863,31 +1270,46 @@ html[data-page="room-example"] section h3::before{
 [data-theme="light"] .member-profile-name{
   color: var(--heading);
 }
+[data-theme="light"] .member-profile-photo{
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.11);
+}
 
-/* Page Ressources — Services Firebase */
-.firebase-page .firebase-page-heading{
+/* Page Ressources — Services Firebase + page VPN/RDP (même en-tête) */
+.firebase-page .firebase-page-heading,
+.vpn-page .firebase-page-heading{
   display: flex;
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
+  font-size: clamp(1.75rem, 3vw, 2.45rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
-.firebase-page .firebase-page-icon{
+.firebase-page .firebase-page-icon,
+.vpn-page .firebase-page-icon{
   width: 64px;
   height: 64px;
   object-fit: contain;
   flex-shrink: 0;
   filter: drop-shadow(0 2px 12px rgba(255, 152, 0, 0.24));
 }
-/* Titres de section (pages doc Ressources) : pastille verte + icône + texte */
+.vpn-page .firebase-page-icon{
+  filter: drop-shadow(0 2px 14px rgba(46, 229, 157, 0.28));
+}
+/* Titres de section (Firebase, Structure du site, VPN/RDP) : pastille verte + icône */
 .firebase-page section h3,
-.site-structure-page section h3{
+.site-structure-page section h3,
+.vpn-page section h3{
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 .firebase-page section h3::before,
-.site-structure-page section h3::before{
+.site-structure-page section h3::before,
+.vpn-page section h3::before{
   content: "";
   width: 10px;
   height: 10px;
@@ -900,6 +1322,18 @@ html[data-page="room-example"] section h3::before{
 .site-structure-page .doc-section-icon{
   font-size: 1.22rem;
   line-height: 1;
+}
+[data-theme="light"] .firebase-page .firebase-page-icon{
+  filter: drop-shadow(0 2px 14px color-mix(in oklab, var(--accent-2) 32%, transparent));
+}
+[data-theme="light"] .vpn-page .firebase-page-icon{
+  filter: drop-shadow(0 2px 14px color-mix(in oklab, var(--accent) 34%, transparent));
+}
+[data-theme="light"] .firebase-page section h3::before,
+[data-theme="light"] .site-structure-page section h3::before,
+[data-theme="light"] .vpn-page section h3::before{
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 15%, transparent);
 }
 
 /* Blocs de code longs (page structure du site) */
@@ -982,7 +1416,14 @@ html[data-page="room-example"] section h3::before{
 }
 
 [data-theme="light"] .btn-primary{
-  color: rgba(10,14,18,0.92);
+  background: color-mix(in oklab, var(--accent) 18%, white);
+  border: 1px solid color-mix(in oklab, var(--accent) 38%, transparent);
+  color: #0f172a;
+}
+[data-theme="light"] .btn-primary:hover{
+  background: color-mix(in oklab, var(--accent) 28%, white);
+  border-color: color-mix(in oklab, var(--accent) 48%, transparent);
+  color: #0f172a;
 }
 
 /* Video embeds */
@@ -991,6 +1432,10 @@ html[data-page="room-example"] section h3::before{
   overflow: hidden;
   border: 1px solid var(--media-border);
   box-shadow: 0 22px 70px rgba(0,0,0,.55);
+}
+
+[data-theme="light"] .ratio{
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.09);
 }
 
 /* Footer */
@@ -1023,12 +1468,32 @@ footer p{
 [data-theme="light"] .room-card,
 [data-theme="light"] .feature,
 [data-theme="light"] .card{
-  box-shadow: 0 18px 44px rgba(10,14,18,0.12);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.07);
+  border-color: color-mix(in oklab, var(--border) 82%, var(--accent) 10%);
+  background: linear-gradient(180deg, #ffffff, color-mix(in oklab, var(--panel) 96%, var(--accent) 4%));
+}
+
+[data-theme="light"] .navbar.bg-dark{
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .dropdown-menu.dropdown-menu-dark{
+  --bs-dropdown-bg: var(--dropdown-bg);
+  --bs-dropdown-border-color: var(--dropdown-border);
+  --bs-dropdown-link-color: var(--dropdown-item);
+  --bs-dropdown-link-hover-color: var(--dropdown-item-hover);
+  --bs-dropdown-link-hover-bg: var(--dropdown-hover-bg);
+  --bs-dropdown-link-active-bg: color-mix(in oklab, var(--accent) 16%, white);
+  --bs-dropdown-link-active-color: #0f172a;
 }
 .room-card:hover{
   transform: translateY(-3px);
   border-color: color-mix(in oklab, var(--border) 70%, var(--accent));
   box-shadow: 0 26px 80px rgba(0,0,0,.55);
+}
+
+[data-theme="light"] .room-card:hover{
+  box-shadow: 0 22px 56px rgba(15, 23, 42, 0.11);
 }
 .room-card::before{
   content: "";
@@ -1040,6 +1505,10 @@ footer p{
   opacity: 0;
   pointer-events: none;
   transition: opacity .20s ease;
+}
+[data-theme="light"] .room-card::before{
+  background: radial-gradient(220px 140px at calc(var(--mx, .5) * 100%) calc(var(--my, .5) * 100%),
+    color-mix(in oklab, var(--accent) 20%, transparent), transparent 65%);
 }
 .room-card.tilting::before{
   opacity: 1;

@@ -1,11 +1,8 @@
 <div class="site-structure-page">
-  <h1>📐 Structure du site</h1>
+  <h1>Structure du site</h1>
 
   <section class="mb-4">
-    <h3>
-      <span class="doc-section-icon" aria-hidden="true">🧭</span>
-      Contexte
-    </h3>
+    <h3>Contexte</h3>
     <p>
       Le site est volontairement organisé comme une <strong>application à page unique (SPA légère)</strong> : une seule <code>index.html</code> sert de coquille, et le contenu des « pages » est injecté dans une zone dédiée sans recharger toute la page.
       Ce choix simplifie la navigation, évite de dupliquer menu et pied de page sur chaque fichier HTML, et reste entièrement compatible avec <strong>Firebase Hosting</strong> (fichiers statiques + règle de rewrite vers <code>index.html</code>).
@@ -16,10 +13,7 @@
   </section>
 
   <section class="mb-4">
-    <h3>
-      <span class="doc-section-icon" aria-hidden="true">📁</span>
-      Organisation des fichiers
-    </h3>
+    <h3>Organisation des fichiers</h3>
     <ul>
       <li>
         <strong>Point d’entrée unique :</strong> <code>public/index.html</code> charge les polices, Bootstrap, <code>css/styles.css</code> et les scripts dans l’ordre
@@ -42,10 +36,7 @@
   </section>
 
   <section class="mb-4">
-    <h3>
-      <span class="doc-section-icon" aria-hidden="true">💻</span>
-      Extraits de code
-    </h3>
+    <h3>Extraits de code</h3>
     <p>
       Les extraits ci-dessous sont repris du projet : ils illustrent le <strong>squelette</strong>, le <strong>chargement des partials</strong> et la <strong>logique du routeur</strong>.
       Le dépôt contient les fichiers complets ; le site publié montre le résultat une fois ces mécanismes chargés.
@@ -54,7 +45,7 @@
     <p class="code-sample-title">1. Squelette — <code>public/index.html</code> (zones d’injection)</p>
     <pre class="site-code-block"><code>&lt;body&gt;
   &lt;div id="menu"&gt;&lt;/div&gt;
-  &lt;main class="container mt-4"&gt;
+  &lt;main class="container"&gt;
     &lt;div id="content"&gt;&lt;/div&gt;
   &lt;/main&gt;
   &lt;div id="footer"&gt;&lt;/div&gt;

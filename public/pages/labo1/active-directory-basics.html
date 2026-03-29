@@ -1,0 +1,50 @@
+<h1>Active Directory Basics</h1>
+<p class="text-muted small">TryHackMe, Parcours Cyber Security 101 (Partie I)</p>
+
+<section class="mb-4">
+  <h3>Contexte</h3>
+  <p>
+    Cette room introduit Active Directory, l’annuaire Microsoft utilisé dans la plupart des environnements Windows en entreprise.
+    L’objectif est de comprendre comment utilisateurs, ordinateurs et ressources sont organisés dans un domaine, et quels sont les rôles
+    des domaines, des unités d’organisation, des groupes et des contrôleurs de domaine.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>Points clés</h3>
+  <p>
+    Active Directory centralise l’authentification et l’administration : comptes, machines, droits. Le contrôleur de domaine stocke les informations
+    du domaine et applique les politiques de sécurité.
+  </p>
+  <p>
+    La structure hiérarchique va du domaine (objets partageant les mêmes règles) à l’arbre puis à la forêt, niveau le plus large.
+    Les unités d’organisation (OU) regroupent utilisateurs ou postes (par service, par site…) et permettent d’appliquer des stratégies de groupe (GPO) de façon cohérente.
+  </p>
+  <p>
+    L’authentification repose notamment sur le protocole <strong>Kerberos</strong>, basé sur des tickets qui permettent d’accéder aux ressources du réseau de manière contrôlée.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>Vidéo</h3>
+  <p class="text-muted small mb-2">
+    Panorama AD on‑prem et Azure AD (John Savill) — utile pour situer domaines, annuaire et identités.
+  </p>
+  <div class="ratio ratio-16x9">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/uts0oy8NlUs?rel=0&modestbranding=1&playsinline=1"
+      title="Active Directory et Azure AD — vue d’ensemble"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+</section>
+
+<section class="mb-4">
+  <h3>En bref</h3>
+  <p class="mb-0">
+    Ces bases sont indispensables pour l’administration Windows en entreprise et pour la suite du parcours : organisation des comptes, politiques
+    et sécurité du réseau s’appuient toutes sur ce modèle.
+  </p>
+</section>

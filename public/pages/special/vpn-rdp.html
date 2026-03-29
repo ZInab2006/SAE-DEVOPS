@@ -1,26 +1,214 @@
-<h1>Mise en Place VPN et Connexions RDP</h1>
+<div class="vpn-page">
+  <h1 class="firebase-page-heading">
+    <img
+      class="firebase-page-icon"
+      src="/img/vpn-rdp-page-icon.svg"
+      alt=""
+      width="64"
+      height="64"
+      decoding="async"
+    />
+    VPN et connexions distantes
+  </h1>
 
 <section class="mb-4">
   <h3>Contexte</h3>
   <p>
-    Cette page présente la procédure suivie pour préparer l’environnement réseau et permettre les connexions distantes nécessaires
-    à certains exercices TryHackMe.
+    Plusieurs rooms TryHackMe proposent des machines sur un réseau privé : sans VPN, votre poste ne peut pas joindre ces cibles
+    comme le ferait un attaquant ou un analyste dans un labo. Cette page comporte deux volets&nbsp;: d’abord <strong>OpenVPN</strong> (captures
+    d’écran, Linux), puis <strong>RDP</strong> (Remote Desktop) pour ouvrir le bureau distant d’une machine Windows du lab lorsque la room l’exige.
   </p>
 </section>
 
 <section class="mb-4">
-  <h3>Étapes réalisées</h3>
+  <h3>Pourquoi utiliser le VPN TryHackMe&nbsp;?</h3>
+  <p>
+    Le VPN crée un tunnel chiffré entre votre machine et le réseau TryHackMe. Concrètement, cela permet&nbsp;:
+  </p>
+  <ul>
+    <li>d’<strong>accéder aux machines de la room</strong> (adresses internes, scans, exploitation) comme si vous étiez sur le même réseau que le lab ;</li>
+    <li>de <strong>séparer</strong> ce trafic du reste de votre navigation tout en restant dans un cadre pédagogique ;</li>
+    <li>de <strong>valider la connectivité</strong> avant de lancer des outils (ping, nmap, navigateur vers une IP de room, etc.).</li>
+  </ul>
+  <p class="mb-0">
+    Sans cette étape, beaucoup d’exercices « ne répondent pas » alors que la cause est simplement l’absence de tunnel VPN actif.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>Étape 1 — Accéder à la page d’accès VPN</h3>
+  <p>
+    Rendez-vous sur la page officielle d’accès TryHackMe pour récupérer le client et les consignes&nbsp;:
+    <a href="https://tryhackme.com/access" target="_blank" rel="noopener noreferrer">https://tryhackme.com/access</a>.
+    Vous y choisissez notamment la configuration <strong>OpenVPN</strong> adaptée à votre système (ici nous détaillons Linux).
+  </p>
+  <figure class="figure my-3">
+    <img
+      src="/img/openvpn1.png"
+      class="figure-img img-fluid rounded border border-secondary-subtle"
+      alt="Capture : page TryHackMe Access pour télécharger ou configurer le VPN OpenVPN"
+      loading="lazy"
+    />
+    <figcaption class="figure-caption text-muted">
+      Page d’accès TryHackMe — zone d’installation / téléchargement du VPN (OpenVPN).
+    </figcaption>
+  </figure>
+</section>
+
+<section class="mb-4">
+  <h3>Étape 2 — Télécharger le fichier <code>.ovpn</code></h3>
+  <p>
+    TryHackMe fournit un fichier de configuration personnel (souvent nommé avec votre identifiant ou « user », extension <code>.ovpn</code>).
+    Téléchargez-le : il contient les paramètres nécessaires pour joindre le réseau du lab. Sur la capture ci-dessous, le fichier est
+    enregistré sur le PC (par défaut souvent le dossier <strong>Téléchargements</strong>).
+  </p>
+  <figure class="figure my-3">
+    <img
+      src="/img/openvpn2.png"
+      class="figure-img img-fluid rounded border border-secondary-subtle"
+      alt="Capture : téléchargement du fichier de configuration OpenVPN .ovpn sur l’ordinateur"
+      loading="lazy"
+    />
+    <figcaption class="figure-caption text-muted">
+      Téléchargement du fichier <code>.ovpn</code> (configuration OpenVPN TryHackMe).
+    </figcaption>
+  </figure>
+</section>
+
+<section class="mb-4">
+  <h3>Étape 3 — Lancer OpenVPN en ligne de commande (Linux)</h3>
+  <p>
+    Vérifiez d’abord qu’<strong>OpenVPN est installé</strong> sur votre distribution (paquet <code>openvpn</code> ou équivalent).
+    Placez-vous dans le dossier où se trouve le fichier, ou indiquez le <strong>chemin complet</strong>. Le fichier est en général dans
+    <code>~/Téléchargements</code> ou <code>~/Downloads</code> selon la langue du système.
+  </p>
+  <p>
+    Exemple de commande (adapter le nom du fichier et le chemin)&nbsp;:
+  </p>
+  <pre class="p-3 rounded border"><code>sudo openvpn /chemin/vers/votre-fichier.ovpn</code></pre>
+  <p>
+    Laisser le terminal ouvert : la session VPN reste active tant que le processus tourne. Utiliser <kbd>Ctrl</kbd>+<kbd>C</kbd> pour arrêter la connexion.
+  </p>
+  <figure class="figure my-3">
+    <img
+      src="/img/openvpn3.png"
+      class="figure-img img-fluid rounded border border-secondary-subtle"
+      alt="Capture : terminal Linux avec la commande sudo openvpn et le fichier .ovpn"
+      loading="lazy"
+    />
+    <figcaption class="figure-caption text-muted">
+      Exécution de <code>sudo openvpn</code> avec le fichier <code>.ovpn</code> (emplacement à vérifier : souvent Téléchargements).
+    </figcaption>
+  </figure>
+</section>
+
+<section class="mb-4">
+  <h3>Étape 4 — Vérifier la connexion (ping)</h3>
+  <p>
+    Une fois le tunnel établi, un test simple consiste à envoyer un <strong>ping</strong> vers une adresse fournie dans la room
+    (ou vers la cible indiquée dans l’énoncé). Des réponses reçues confirment que vous êtes bien connecté au réseau TryHackMe.
+  </p>
+  <figure class="figure my-3">
+    <img
+      src="/img/openvpn4.png"
+      class="figure-img img-fluid rounded border border-secondary-subtle"
+      alt="Capture : ping réussi vers une machine du réseau TryHackMe après connexion VPN"
+      loading="lazy"
+    />
+    <figcaption class="figure-caption text-muted">
+      Exemple de <code>ping</code> réussi après connexion OpenVPN — la connectivité au lab est OK.
+    </figcaption>
+  </figure>
+</section>
+
+<section class="mb-4">
+  <h3>Windows, macOS ou autre environnement</h3>
+  <p class="mb-0">
+    Si vous n’êtes pas sous Linux, TryHackMe propose un guide pas à pas pour d’autres systèmes (install du client, import du <code>.ovpn</code>, etc.)
+    sur la room dédiée&nbsp;:
+    <a href="https://tryhackme.com/room/openvpn" target="_blank" rel="noopener noreferrer">https://tryhackme.com/room/openvpn</a>.
+  </p>
+</section>
+
+<hr class="my-5 opacity-25" />
+
+<section class="mb-4">
+  <h3>La connexion RDP (bureau distant)</h3>
+  <p class="text-muted">
+    Le <abbr title="Remote Desktop Protocol">RDP</abbr> permet de contrôler l’interface graphique d’une machine Windows distante.
+    Sur TryHackMe, certaines rooms fournissent une cible Windows accessible en RDP une fois le <strong>VPN actif</strong>.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>À quoi sert le RDP ici&nbsp;?</h3>
+  <ul>
+    <li>Utiliser des <strong>outils graphiques</strong> sur la machine du lab (Active Directory, navigateur sur la cible, bureaux Windows « réels ») ;</li>
+    <li>Suivre des scénarios qui imitent un poste utilisateur ou un serveur, là où SSH seul ne suffit pas ;</li>
+    <li>Travailler comme en entreprise avec un <strong>client bureau à distance</strong>, tout en restant dans l’environnement d’apprentissage.</li>
+  </ul>
+  <p class="mb-0">
+    Les <strong>identifiants</strong> (utilisateur, mot de passe) et l’<strong>adresse</strong> ou le <strong>port</strong> RDP sont indiqués dans la room ou sur la fiche machine TryHackMe : il faut les reprendre tels quels pour la connexion.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>Rappels sur le protocole RDP (hors TryHackMe)</h3>
+  <p>
+    Pour une introduction claire au <strong>Remote Desktop Protocol</strong> (port <code>3389</code>, TCP, lien avec le Bureau à distance Windows,
+    activation, différences avec RDS, etc.), on s’appuie sur un article pédagogique plutôt que de tout redévelopper ici&nbsp;:
+  </p>
+  <p class="mb-0">
+    <a href="https://www.it-connect.fr/le-protocole-rdp-et-le-bureau-a-distance-pour-les-debutants/" target="_blank" rel="noopener noreferrer">IT-Connect — Le protocole RDP et le Bureau à distance pour les débutants</a>
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>Prérequis avant d’ouvrir une session RDP (TryHackMe)</h3>
   <ol>
-    <li>Installation et configuration du client VPN fourni par la plateforme.</li>
-    <li>Vérification de la connectivité entre machine locale et réseau distant.</li>
-    <li>Configuration des paramètres de connexion RDP vers les machines cibles.</li>
-    <li>Tests de stabilité et de sécurité de la session distante.</li>
+    <li><strong>VPN OpenVPN connecté</strong> (voir la partie 1 ci-dessus) — sans VPN, l’IP interne du lab n’est pas joignable.</li>
+    <li>Noter l’<strong>IP</strong> (ou le hostname) de la machine, le <strong>port</strong> si ce n’est pas le port par défaut <code>3389</code>, ainsi que <strong>utilisateur / mot de passe</strong> (fournis par la room).</li>
+    <li><strong>Linux</strong> : client <code>xfreerdp</code> ou Remmina — voir la section suivante. Pour <strong>Windows</strong> ou <strong>macOS</strong>, utiliser le client adapté en reprenant les mêmes paramètres (adresse, port, comptes) une fois les notions générales comprises via le lien IT-Connect ci-dessus.</li>
   </ol>
 </section>
 
 <section class="mb-4">
-  <h3>Points de vigilance</h3>
+  <h3>RDP sous Linux (<code>xfreerdp</code>)</h3>
   <p>
-    Nous compléterons ici les bonnes pratiques retenues, les problèmes rencontrés et les solutions appliquées pour fiabiliser la connexion.
+    Sur de nombreuses distributions, le paquet s’appelle <code>freerdp</code> ou <code>freerdp2</code> (binaire souvent <code>xfreerdp</code>).
+    Exemple de commande (à adapter avec l’IP, le port, le login et le mot de passe fournis par la room)&nbsp;:
+  </p>
+  <pre class="p-3 rounded border"><code>xfreerdp /v:ADRESSE_IP:3389 /u:NOM_UTILISATEUR /p:'MOT_DE_PASSE' /dynamic-resolution +clipboard</code></pre>
+  <p>
+    Les certificats des machines de lab sont souvent auto-signés : le client peut afficher un avertissement. En environnement <strong>TryHackMe uniquement</strong>,
+    on peut accepter une option du type <code>/cert:ignore</code> ou répondre « oui » à la question du terminal selon la version de FreeRDP
+    (voir <code>xfreerdp --help</code>).
+  </p>
+  <p class="mb-0">
+    Alternative graphique : <strong>Remmina</strong> (protocole RDP, même paramètres : serveur, port, identifiants).
   </p>
 </section>
+
+<section class="mb-4">
+  <h3>Vérifier que la session fonctionne</h3>
+  <p>
+    Après connexion, le bureau Windows du lab doit s’afficher. Si la fenêtre reste noire ou se ferme tout de suite, vérifier le VPN,
+    le port, et que la machine est bien <strong>démarrée</strong> dans l’interface TryHackMe (bouton <em>Start Machine</em> / équivalent).
+  </p>
+  <p class="mb-0">
+    Pour aller plus loin sur l’accès réseau côté TryHackMe, la page
+    <a href="https://tryhackme.com/access" target="_blank" rel="noopener noreferrer">https://tryhackme.com/access</a>
+    reste le point d’entrée officiel (VPN, puis utilisation des machines de la room).
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>Sécurité et bonnes habitudes</h3>
+  <ul class="mb-0">
+    <li>Utiliser RDP uniquement vers les <strong>cibles du lab</strong> TryHackMe, pas vers des systèmes réels sans autorisation.</li>
+    <li>Ne pas réutiliser en production les mots de passe « de démo » donnés dans les rooms.</li>
+    <li>Fermer la session RDP et le VPN lorsque vous avez terminé, surtout sur un poste partagé.</li>
+  </ul>
+</section>
+
+</div>

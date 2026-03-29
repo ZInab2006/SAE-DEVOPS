@@ -6,10 +6,28 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "redirects": [
+      {
+        "source": "/zinab-room",
+        "destination": "/?page=labo1/search-skills",
+        "type": 302
+      }
+    ],
     "rewrites": [
       {
         "source": "**",
         "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          }
+        ]
       }
     ]
   }

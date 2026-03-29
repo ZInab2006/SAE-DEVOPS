@@ -1,15 +1,18 @@
 <h1>Living Off The Land</h1>
 
 <section class="mb-4">
-  <h3>🧭 Contexte</h3>
+  <h3>Contexte</h3>
   <p>
     Le sujet Living Off The Land décrit des attaques qui réutilisent des outils natifs du système au lieu d’introduire un malware classique.
     L’attaquant cherche à rester discret en utilisant des commandes légitimes déjà présentes sur la machine.
   </p>
+  <p class="text-muted small mb-0">
+    Cette page se limite à expliquer le concept, les familles de techniques et les ressources utiles ; il n’y a pas de démonstration ni d’exercice de labo ici.
+  </p>
 </section>
 
 <section class="mb-4">
-  <h3>💭 Points clés</h3>
+  <h3>Points clés</h3>
   <p>
     Cette approche complique la détection car l’activité peut ressembler à de l’administration normale. Des outils comme PowerShell, WMI ou cmd
     peuvent être détournés pour l’exécution, le mouvement latéral et la collecte d’informations.
@@ -21,17 +24,115 @@
 </section>
 
 <section class="mb-4">
-  <h3>💬 Démarche du labo</h3>
-  <p>
-    Dans notre démonstration, nous montrons comment reconnaître un usage détourné d’outils natifs et quels indicateurs relever pour expliquer
-    la chaîne d’actions. Cette étape permet de relier les commandes observées aux mesures de défense à mettre en place.
-  </p>
-</section>
-
-<section class="mb-4">
-  <h3>✨ En bref</h3>
+  <h3>En bref</h3>
   <p>
     Living Off The Land montre que la confiance dans les outils système ne suffit pas. Une bonne protection passe par l’observabilité, la limitation des droits
     et l’analyse contextuelle des actions exécutées.
   </p>
+</section>
+
+<section class="mb-4">
+  <h3>Origine et idée générale</h3>
+  <p>
+    L’expression <em>Living Off the Land</em> vient de l’idée de « vivre de ce que la terre offre » : comme en vrai, l’adversaire exploite ce qui est déjà sur la machine
+    (outils et utilitaires intégrés) plutôt que d’empiler des binaires suspects. Le terme a été popularisé à DerbyCon en 2013 et reste central en red team.
+  </p>
+  <p>
+    L’objectif principal est d’utiliser des programmes, scripts ou bibliothèques signés Microsoft pour se fondre dans l’activité légitime et limiter la détection.
+    Exemple classique : détourner <code>CertUtil</code> pour télécharger un fichier sans rapport avec la gestion des certificats.
+  </p>
+  <p>Les grands volets couverts par ce type d’approche incluent notamment :</p>
+  <ul>
+    <li>reconnaissance ;</li>
+    <li>opérations sur les fichiers ;</li>
+    <li>exécution de code arbitraire ;</li>
+    <li>mouvement latéral ;</li>
+    <li>contournement des produits de sécurité.</li>
+  </ul>
+</section>
+
+<section class="mb-4">
+  <h3>Windows Sysinternals</h3>
+  <p>
+    <strong>Sysinternals</strong> regroupe des utilitaires avancés pour administrer, diagnostiquer et dépanner Windows (disques, processus, réseau, informations système, sécurité).
+    L’usage en ligne de commande impose souvent d’accepter la licence Microsoft, par exemple avec l’argument <code>-accepteula</code>, ou via une case à cocher au premier lancement.
+  </p>
+  <p>
+    La suite ne nécessite pas d’installation classique : on peut récupérer les outils via le site Microsoft, le partage réseau <strong>Sysinternals Live</strong>
+    (<code>\\live.sysinternals.com\tools</code>) ou en ligne de commande. Exemples d’outils souvent cités : AccessChk, PsExec, ADExplorer, ProcDump, ProcMon, TCPView, les PsTools, Portmon, Whois.
+  </p>
+  <p>
+    Même s’ils sont légitimes pour les admins, ces binaires profitent de la confiance du système : les attaquants et les équipes rouges peuvent donc les abuser pour rester discrets,
+    ce qui pousse les éditeurs de sécurité à surveiller aussi ces usages.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>LOLBAS (Living Off the Land Binaries And Scripts)</h3>
+  <p>
+    <strong>LOLBAS</strong> est un projet communautaire qui recense et documente des binaires, scripts et bibliothèques signés Microsoft utilisables comme techniques LOTL.
+    On peut y chercher par nom de fichier, par fonction, ou en croisant avec MITRE ATT&amp;CK.
+  </p>
+  <p>
+    Sur le site du projet, la barre de recherche accepte des préfixes utiles : par exemple <code>/execute</code> pour filtrer sur une fonction, ou <code>#Binary</code>, <code>#Script</code>,
+    <code>#Libraries</code>, <code>#OtherMSBinaries</code> pour filtrer par type.
+  </p>
+  <p>Pour qu’un outil soit retenu, il doit en général :</p>
+  <ul>
+    <li>être un fichier signé Microsoft, natif au système ou téléchargé depuis Microsoft ;</li>
+    <li>offrir des usages « intéressants » au-delà du scénario d’usage prévu ;</li>
+    <li>pouvoir servir un scénario type APT ou red team.</li>
+  </ul>
+  <p>Les familles de fonctionnalités documentées incluent entre autres l’exécution de code, les opérations fichiers (téléchargement, copie…), la compilation, la persistance, le contournement UAC, le dump mémoire et l’injection.</p>
+  <p class="small text-muted mb-0">Équivalent côté Linux / Unix : le projet <strong>GTFOBins</strong>, sur le même principe pour les binaires Unix.</p>
+</section>
+
+<section class="mb-4">
+  <h3>Exemples — opérations sur les fichiers</h3>
+  <p>
+    <strong>Certutil</strong> sert normalement aux certificats, mais on peut l’utiliser pour télécharger des fichiers depuis une URL ou pour encoder/décoder du contenu
+    (techniques souvent référencées côté ATT&amp;CK comme transfert d’outil ou obfuscation de fichiers).
+  </p>
+  <p>
+    <strong>BITSAdmin</strong> pilote le service BITS (transferts HTTP/SMB en arrière-plan) : un attaquant peut créer un job pour récupérer ou envoyer un fichier de façon discrète.
+  </p>
+  <p>
+    <strong>FindStr</strong> sert à chercher des chaînes dans des fichiers ; un usage détourné consiste à lire un fichier distant via un partage SMB et à rediriger la sortie vers un fichier local,
+    ce qui ressemble à un copier-coller « par la ligne de commande ».
+  </p>
+  <p class="small text-muted mb-0">La liste complète des variantes est maintenue dans le projet LOLBAS.</p>
+</section>
+
+<section class="mb-4">
+  <h3>Exemples — exécution et contournement</h3>
+  <p>
+    <strong>Exécution détournée</strong> : l’Explorateur Windows (<code>explorer.exe</code>) peut lancer d’autres programmes ; <strong>WMIC</strong> peut créer des processus via WMI ;
+    <strong>rundll32</strong> charge des DLL et peut exécuter du code via des chemins comme JavaScript embarqué — le tout en s’appuyant sur des binaires signés et souvent whitelistés.
+  </p>
+  <p>
+    <strong>Contournement de whitelisting applicatif</strong> : <strong>regsvr32</strong> enregistre des DLL mais peut aussi servir à exécuter du code signé ou distant ;
+    sur certaines configurations, <strong>bash.exe</strong> (WSL) permet d’exécuter des commandes non prévues par la politique Windows classique.
+  </p>
+  <p>
+    D’autres idées : raccourcis modifiés pour lancer <code>rundll32</code>, <code>regsvr32</code> ou un exécutable au clic (ATT&amp;CK — modification de raccourcis) ;
+    outils comme <strong>PowerLessShell</strong> qui s’appuient sur <strong>MSBuild</strong> pour exécuter du code sans processus PowerShell visible.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>Cas réel : Astaroth (aperçu)</h3>
+  <p>
+    Astaroth est un exemple de malware « fileless » analysé notamment par Microsoft : vol d’informations, évasion (anti-debug, anti-VM…), process hollowing, flux alternatifs NTFS, et recours massif au LOTL.
+    Chaîne d’attaque typique : pièce jointe avec raccourci → commande WMIC pour du JavaScript → BITS pour télécharger plusieurs composants → parfois chaînes cachées (ex. descriptions YouTube) →
+    certutil pour décoder → exécution via regsvr32. Ce cas illustre comment plusieurs briques LOTL s’enchaînent dans un seul incident.
+  </p>
+</section>
+
+<section class="mb-4">
+  <h3>Ressources</h3>
+  <ul class="mb-0">
+    <li>Projet <a href="https://lolbas-project.github.io/" rel="noopener noreferrer">LOLBAS</a> ;</li>
+    <li><a href="https://gtfobins.github.io/" rel="noopener noreferrer">GTFOBins</a> (équivalent Linux) ;</li>
+    <li>Documentation Microsoft sur la suite Sysinternals.</li>
+  </ul>
 </section>
