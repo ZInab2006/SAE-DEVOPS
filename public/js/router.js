@@ -12,8 +12,6 @@ const allowedPages = [
   "special/vpn-rdp",
   "lotl",
   "mitm",
-  "windows-command-line",
-  "active-directory-basics",
   "members/member-1",
   "members/member-2",
   "members/member-3",
@@ -25,6 +23,8 @@ const allowedPages = [
   "labo1/windows-fundamentals-1",
   "labo1/windows-fundamentals-2",
   "labo1/windows-fundamentals-3",
+  "labo1/windows-command-line",
+  "labo1/active-directory-basics",
 
   // Labo 2 — Pre Security (Partie II)
   "labo2/careers-in-cyber",
@@ -51,7 +51,9 @@ const allowedPages = [
  * Alias courts → pages réelles (ex. room préférée d’un membre).
  */
 const pageAliases = {
-  "zinab-room": "labo1/search-skills"
+  "zinab-room": "labo1/search-skills",
+  "windows-command-line": "labo1/windows-command-line",
+  "active-directory-basics": "labo1/active-directory-basics"
 };
 
 function resolvePageAlias(page) {
