@@ -1,117 +1,117 @@
-# SAE 4.B.01 DevOps - Blog Cybersécurité
+# SAE 4.B.01 DevOps — CyberNotes (blog cybersécurité)
 
-Projet de SAE (BUT2 Informatique, parcours B DevOps) : réalisation d'un blog d'information sur la sécurité et le déploiement d'applications, incluant le suivi des laboratoires TryHackMe, puis déploiement sur Firebase Hosting.
+Projet de SAE (BUT2 Informatique, parcours DevOps) : site statique documentant les parcours **TryHackMe** (Cyber Security 101, Pre Security, Cyber Security 101 partie III), des pages transverses (Firebase, VPN/RDP, LOTL, MITM) et les **fiches membres**, avec déploiement sur **Firebase Hosting**.
 
-## Objectifs du projet
+**Dépôt :** [github.com/ZInab2006/SAE-DEVOPS](https://github.com/ZInab2006/SAE-DEVOPS)  
+**Site en ligne :** [saedevops-group2.web.app](https://saedevops-group2.web.app)
 
-- Présenter les connaissances acquises en sécurité et en déploiement.
-- Documenter l'avancement sur TryHackMe (parcours Cyber Security 101 et Pre Security).
-- Publier un site web responsive et accessible en ligne via Firebase Hosting.
+## Objectifs
 
-## Périmètre fonctionnel
+- Présenter les acquis en sécurité et la démarche sur les rooms documentées.
+- Offrir une navigation homogène (menu, thème clair/sombre, pied de page).
+- Assurer un déploiement reproductible via Git et Firebase.
 
-- Page d'accueil avec présentation de l'équipe.
-- Navigation homogène entre toutes les pages (menu + footer).
-- Une page par room/documentation (contexte, compréhension, vidéo, explication).
-- Pages spéciales demandées par le sujet (Firebase, organisation, VPN/RDP, etc.).
-- Site responsive (mobile, tablette, desktop).
+## Fonctionnalités principales
+
+- **SPA légère** : `index.html` charge les fragments HTML dans `#content` selon `?page=` (liste blanche dans `public/js/router.js`).
+- **Labo 1** (9 rooms Partie I) : offensive/defensive intro, Search Skills, Linux fundamentals, Windows fundamentals 1–3, Windows Command Line, Active Directory Basics.
+- **Labo 2** : Pre Security (réseau, HTTP, DNS, etc.).
+- **Labo 3** : réseau, crypto, exploitation, OWASP Top 10 2025 (thèmes ciblés), etc.
+- **Ressources SAE** : Services Firebase, structure du site, VPN/RDP, LOTL, MITM.
+- **Équipe** : cartes membres, organisation du groupe, remerciements, lien GitHub dans le footer.
 
 ## Stack technique
 
-- HTML5
-- CSS3
-- JavaScript
-- Firebase Hosting (plan Spark)
+| Élément | Détail |
+|--------|--------|
+| Front | HTML5, CSS3, JavaScript (vanilla) |
+| UI | Bootstrap 5.3 |
+| Hébergement | Firebase Hosting (`saedevops-group2`) |
+| Routage | Paramètre `?page=` + alias (ex. `zinab-room` → Search Skills) |
 
-## Structure actuelle
+## Structure du dépôt
 
 ```text
-SAE-DevOps/
+SAEDEVOPS/
 ├── public/
-│   ├── index.html
-│   ├── css/
-│   │   └── styles.css
-│   └── js/
-│       └── labs.js
-├── firebase.json
+│   ├── index.html          # Shell : menu, #content, footer
+│   ├── home.html            # Accueil (chargé dans #content)
+│   ├── css/styles.css
+│   ├── js/
+│   │   ├── router.js        # Pages autorisées + chargement des fragments
+│   │   ├── include.js      # Injection menu / footer
+│   │   ├── theme.js
+│   │   └── animations.js
+│   ├── partials/
+│   │   ├── menu.html
+│   │   └── footer.html     # Lien vers le dépôt GitHub
+│   ├── pages/
+│   │   ├── rooms.html
+│   │   ├── team.html
+│   │   ├── labo1/ … labo2/ … labo3/
+│   │   ├── members/
+│   │   ├── special/
+│   │   ├── lotl.html, mitm.html
+│   │   └── …
+│   └── img/
+├── firebase.json            # Hosting, rewrites SPA, Referrer-Policy (embeds YouTube)
 ├── .firebaserc
 └── README.md
 ```
 
-## Lancer le projet en local
+## Lancer en local
 
-Depuis la racine du projet :
+Depuis la racine du clone :
 
 ```bash
-cd /home/zinab/Documents/SAE-DevOps
-npx serve public
+cd SAEDEVOPS
+npx --yes serve public
 ```
 
-Puis ouvrir l'URL locale affichée par `serve` dans le navigateur.
+Ouvrir l’URL indiquée (souvent `http://localhost:3000`). Servir impérativement le dossier **`public`** pour que les chemins `/css/`, `/img/`, etc. fonctionnent.
+
+Alternative :
+
+```bash
+cd public && python -m http.server 8080
+```
 
 ## Déploiement Firebase
 
-### 1) Pré-requis
+**Prérequis :** compte Google, [Firebase CLI](https://firebase.google.com/docs/cli) ou `npx`.
 
-- Un compte Google/Firebase
-- Node.js et npm installés
-
-### 2) Installation CLI
+Le projet par défaut est défini dans `.firebaserc` (`saedevops-group2`).
 
 ```bash
-npm install -g firebase-tools
-firebase login
+# Première fois : connexion
+npx firebase-tools login
+
+# Déployer uniquement le hosting
+cd SAEDEVOPS
+npx firebase-tools deploy --only hosting
 ```
 
-### 3) Configuration du projet
-
-Mettre l'ID Firebase réel dans `.firebaserc` (remplacer `VOTRE_ID_PROJET_FIREBASE`).
-
-```json
-{
-  "projects": {
-    "default": "votre-id-projet-firebase"
-  }
-}
-```
-
-### 4) Déployer
-
-```bash
-cd /home/zinab/Documents/SAE-DevOps
-firebase deploy
-```
+Console : [console.firebase.google.com/project/saedevops-group2](https://console.firebase.google.com/project/saedevops-group2/overview)
 
 ## Livrables SAE (rappel)
 
-- Site fonctionnel, responsive, déployé sur Firebase.
-- Pages de rooms avec :
-  - contexte,
-  - ce que nous avons compris (rédaction personnelle),
-  - vidéo commentée de résolution,
-  - courte conclusion.
-- Pages spéciales complémentaires demandées par le sujet.
-- Fichier `.txt` de rendu Moodle avec membres du groupe + lien du site.
+- Site responsive, accessible en ligne.
+- Pages de rooms : contexte, points clés, vidéo (embed), synthèse.
+- Pages spéciales et organisation d’équipe documentée sur le site.
+- Rendu Moodle : membres + **lien du site** (et lien GitHub si demandé).
 
-## Bonnes pratiques d'équipe
+## Équipe
 
-- Avancer par tickets (une room = un ticket).
-- Relire chaque page par un autre membre avant publication.
-- Maintenir un format homogène sur toutes les pages.
-- Vérifier régulièrement les liens et l'affichage responsive.
+Projet réalisé dans le cadre de la **SAE 4.B.01** — BUT2 Informatique (IUT).
 
-## Sources utiles
+| Membre |
+|--------|
+| OUTMANI Zinab |
+| KIME Marwa |
+| HERBAUX Jules |
+| BAKRI Mohammed |
 
-- Sujet SAE : `SAE4.B.01 DevOps.pdf`
-- Documentation Firebase : [https://firebase.google.com/docs](https://firebase.google.com/docs)
-- TryHackMe : [https://tryhackme.com/](https://tryhackme.com/)
+## Liens utiles
 
-## Auteurs
-
-Projet réalisé dans le cadre de la SAE 4.B.01 - BUT2 Informatique (IUT de Calais).  
-
-KIME Marwa
-OUTMANI Zinab
-HERBAUX Jules
-
-
+- [Documentation Firebase Hosting](https://firebase.google.com/docs/hosting)
+- [TryHackMe](https://tryhackme.com/)
