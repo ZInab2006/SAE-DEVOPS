@@ -746,14 +746,95 @@ html[data-page="room-example"] section h3::before{
   color: var(--heading);
 }
 
-/* Photo de profil sur la carte équipe */
-.team-profile-photo{
-  width: 100%;
+/* Page équipe — bandeau photo identique sur chaque carte */
+.team-page .team-card-media{
+  position: relative;
   height: 168px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in oklab, var(--panel) 70%, transparent);
+}
+.team-page .team-card-media .team-profile-photo{
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center top;
   display: block;
-  border-bottom: 1px solid var(--border);
+}
+/* Placeholder quand la photo n’est pas encore dans img/team/ */
+.team-page .team-profile-placeholder{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  text-align: center;
+}
+.team-page .team-profile-placeholder--marwa{
+  background: linear-gradient(
+    145deg,
+    color-mix(in oklab, #b84d7a 35%, var(--bg)),
+    color-mix(in oklab, #2a1f3d 55%, var(--bg))
+  );
+}
+.team-page .team-profile-placeholder--mohamed{
+  background: linear-gradient(
+    155deg,
+    color-mix(in oklab, #c41e3a 30%, var(--bg)),
+    color-mix(in oklab, #0d2137 65%, var(--bg))
+  );
+}
+.team-page .team-profile-placeholder--jules{
+  background: linear-gradient(
+    160deg,
+    color-mix(in oklab, var(--panel) 65%, #1a1430),
+    color-mix(in oklab, var(--bg) 80%, #0a0e14)
+  );
+}
+.team-page .team-profile-placeholder__initials{
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 5vw, 2.15rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+}
+.team-page .team-profile-placeholder__hint{
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 12rem;
+  line-height: 1.35;
+}
+[data-theme="light"] .team-page .team-profile-placeholder__hint{
+  color: rgba(10, 14, 18, 0.55);
+}
+
+/* Lien fiche membre sous la carte */
+.team-page .team-card-link{
+  font-weight: 650;
+}
+
+/* Section organisation : même pastille verte que les pages Ressources */
+.team-page section.mt-4 h3{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.team-page section.mt-4 h3::before{
+  content: "";
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--accent) 70%, var(--accent-2));
+  box-shadow: 0 0 0 4px rgba(46, 229, 157, 0.10);
 }
 
 /* Fiche membre : en-tête avec photo */
@@ -797,14 +878,16 @@ html[data-page="room-example"] section h3::before{
   flex-shrink: 0;
   filter: drop-shadow(0 2px 12px rgba(255, 152, 0, 0.24));
 }
-/* Titres de section : pastille verte (comme les pages labo) + icône + texte */
-.firebase-page section h3{
+/* Titres de section (pages doc Ressources) : pastille verte + icône + texte */
+.firebase-page section h3,
+.site-structure-page section h3{
   display: inline-flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 12px;
 }
-.firebase-page section h3::before{
+.firebase-page section h3::before,
+.site-structure-page section h3::before{
   content: "";
   width: 10px;
   height: 10px;
@@ -813,9 +896,44 @@ html[data-page="room-example"] section h3::before{
   background: color-mix(in oklab, var(--accent) 70%, var(--accent-2));
   box-shadow: 0 0 0 4px rgba(46, 229, 157, 0.10);
 }
-.firebase-page .firebase-section-icon{
+.firebase-page .firebase-section-icon,
+.site-structure-page .doc-section-icon{
   font-size: 1.22rem;
   line-height: 1;
+}
+
+/* Blocs de code longs (page structure du site) */
+.site-structure-page .site-code-block{
+  margin: 10px 0 18px 0;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--bg) 65%, rgba(0,0,0,0.5));
+  overflow-x: auto;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.site-structure-page .site-code-block code{
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+  white-space: pre;
+  display: block;
+}
+.site-structure-page .code-sample-title{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--heading);
+  margin: 16px 0 6px 0;
+}
+.site-structure-page .code-sample-title:first-child{
+  margin-top: 0;
+}
+[data-theme="light"] .site-structure-page .site-code-block{
+  background: color-mix(in oklab, var(--panel) 90%, white);
 }
 
 .alert{
